@@ -7,13 +7,28 @@ Solid Interfaces"). Made with AI agents working in MV2's name; not yet checked b
 thermal-transport specialist.
 
 - `PLAN.md`: the question, the benchmarks and the expectations written before each job runs.
+  Dated amendments (`PLAN-amendment-0.2.md`, ...) add stages without changing earlier text.
 - `tbc_transport.py`: elastic baselines (full-band and Debye DMM, Debye AMM, gray Simons/Zeng-Chen
   correction, phonon radiation limit, electron-phonon series resistance). numpy only.
 - `tbc_phonons.py`: bulk phonons from open universal potentials (MACE-MPA-0, MIT; orb-v3, Apache-2.0)
   through phonopy.
 - `run_tbc.py`: stage-1 job; results go to `results/` once it returns.
-- `test_tbc_transport.py`: unit tests (`python -m unittest -v test_tbc_transport`).
+- `tbc_bte.py`: stage 2a. A multiband two-stream Boltzmann model of the interface region with
+  mode-resolved bulk lifetimes on both sides of an elastic (DMM) interface. In the gray limit it
+  reduces exactly to the Simons/Zeng-Chen corrected DMM. numpy only.
+- `tbc_anh.py`, `run_tbc_anh.py`: stage-2a job. It computes three-phonon and isotope lifetimes
+  (phono3py) of Al, Si, GaN, AlN and diamond from the same open potentials, then G(T) from
+  `tbc_bte` for Al/Si, Al/GaN and AlN/GaN.
+- Unit tests: `python -m unittest -v test_tbc_transport test_tbc_bte`.
 
-Status (2026-11-18): stage 1 (baselines) pre-registered, job queued. No results yet.
+Status (2026-11-18): stage 1 (elastic baselines) and stage 2a (bulk anharmonicity next to the
+interface) are pre-registered, and both jobs are queued. No results yet.
+
+Stage 2a tests a scaling argument (PLAN-amendment-0.2.md, section 2). For semi-infinite solids
+and an elastic interface, multiplying every bulk scattering rate by the same factor leaves the
+interface conductance unchanged. In the classical limit three-phonon rates all grow in proportion
+to T, so bulk anharmonic thermalization next to the interface cannot by itself produce the linear
+rise of G with T measured at Al/GaN. If the job confirms this for real materials, a transferable
+model needs an inelastic channel at the interface itself.
 
 Licence: Apache-2.0 (code), CC BY 4.0 (text). Contact: MV2, Munim, Inc., mv2@munimtech.com.
