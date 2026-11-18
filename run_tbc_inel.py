@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 # Copyright 2026 Munim, Inc. (MV2). Made with AI agents working in MV2's name.
-"""run_tbc_inel: stage 2b of the interface-heat-transport study (PLAN-amendment-0.3.md).
+"""run_tbc_inel: stage 2b of the interface-heat-transport study (PLAN-amendment-0.3.md, with the
+solver correction and recorded diagnostics of PLAN-amendment-0.3.1.md).
 
 Inputs (all published in the repo before this runs): stage 2a's per-material lifetimes
 results/anh/anh-<model>-<mat>.npz and results/anh/tba-summary.json (elastic two-stream G_BTE, relaxed
@@ -17,7 +18,7 @@ import numpy as np
 
 import tbc_inel as ti
 
-VERSION = "mv2 run-tbc-inel 0.1.0"
+VERSION = "mv2 run-tbc-inel 0.1.1"
 
 PAIRS = [("Al", "Si"), ("Al", "GaN"), ("AlN", "GaN")]
 GEOM = {"Al": "fcc111", "Si": "diamond111", "C": "diamond111", "GaN": "wurtzite0001",
@@ -26,6 +27,7 @@ NCONV = {"Al": 4, "Si": 8, "C": 8, "GaN": 4, "AlN": 4}   # atoms in the cell who
 G_EP_AL = float(np.sqrt(2.45e17 * 6.0))                    # stage 1/2a Al electron-phonon term
 MEAS_300 = {"Al/Si": 379e6, "Al/GaN": 423e6}
 ALNGAN_RANGE = (0.8 * 320e6, 1.2 * 490e6)
+S_HI = 1000.0
 
 
 def load_side(anh_dir, model, name, cell_lengths):
@@ -53,6 +55,18 @@ def side_at(s, T):
 def total(pair, g_bte, g_in, s=1.0):
     g = g_bte + s * g_in
     return ti.series(G_EP_AL, g) if pair.startswith("Al/") else g
+
+
+def phonon_side(g_meas, g_ep=G_EP_AL):
+    """Phonon-side conductance implied by a measured total with g_ep in series."""
+    return 1.0 / (1.0 / g_meas - 1.0 / g_ep)
+
+
+def classify(vals):
+    """Reading of PLAN-amendment-0.3 sec. 4 on a dict of scale factors."""
+    lo, hi = min(vals.values()), max(vals.values())
+    return ("too-weak" if lo > 8.0 else "too-strong" if hi < 0.25 else
+            "right-order" if 0.5 <= lo and hi <= 2.0 else "intermediate")
 
 
 def main():
@@ -126,14 +140,31 @@ def main():
     except KeyError as e:
         g["I0"] = f"UNDETERMINED(missing {e})"
     sstar = {}
+    detail = {}
     for p in ("Al/Si", "Al/GaN"):
         try:
-            rise = float(meas[p]["700"]) - float(meas[p]["400"])
-            sstar[p] = ti.solve_scale((rr(p, "400", "G_bte"), rr(p, "700", "G_bte")),
-                                      (rr(p, "400", "G_inel"), rr(p, "700", "G_inel")),
-                                      rise, g_ep=G_EP_AL)
+            el = (rr(p, "400", "G_bte"), rr(p, "700", "G_bte"))
+            inn = (rr(p, "400", "G_inel"), rr(p, "700", "G_inel"))
+            m400, m700 = float(meas[p]["400"]), float(meas[p]["700"])
         except KeyError:
-            pass
+            continue
+        rise = m700 - m400
+        sstar[p] = ti.solve_scale(el, inn, rise, g_ep=G_EP_AL, hi=S_HI)
+        # recorded diagnostics (PLAN-amendment-0.3.1 sec. 3)
+        s_max, r_max = ti.max_rise(el, inn, g_ep=G_EP_AL, hi=S_HI)
+        gpp = (phonon_side(m400), phonon_side(m700))
+        d_in = inn[1] - inn[0]
+        s_pp = ((gpp[1] - gpp[0]) - (el[1] - el[0])) / d_in if d_in > 0 else float("inf")
+        s_abs400 = (gpp[0] - el[0]) / inn[0] if inn[0] > 0 else float("inf")
+        ep_t = (G_EP_AL, G_EP_AL * np.sqrt(400.0 / 700.0))
+        s_ep_t = ti.solve_scale(el, inn, rise, g_ep=ep_t, hi=S_HI)
+        detail[p] = {"rise_meas": rise, "max_model_rise": r_max, "s_at_max_rise": s_max,
+                     "G_pp_meas": list(gpp), "s_pp": s_pp, "s_abs400": s_abs400,
+                     "s_star_ep_falling": s_ep_t,
+                     "no_fit": bool((not np.isfinite(sstar[p])) and s_max < 0.999 * S_HI)}
+        log(f"{p}: s* {sstar[p]:.3g} | max model rise {r_max/1e6:.0f} at s {s_max:.3g} vs measured "
+            f"{rise/1e6:.0f} | G_pp meas {gpp[0]/1e6:.0f}->{gpp[1]/1e6:.0f} | s_pp {s_pp:.3g} | "
+            f"s_abs400 {s_abs400:.3g} | s* with falling G_ep {s_ep_t:.3g}")
     if len(sstar) == 2:
         g["I1"] = ("PASS" if all(0.5 <= v <= 2.0 for v in sstar.values()) else "FAIL") + \
             "(" + ",".join(f"s*{p}:{v:.2f}" for p, v in sstar.items()) + ")"
@@ -146,10 +177,9 @@ def main():
                 f"(pred rise {pred/1e6:.0f} vs meas {mrise/1e6:.0f})"
         else:
             g["I2"] = "FAIL(s* infinite)"
-        lo = min(sstar.values())
-        hi = max(sstar.values())
-        g["reading"] = ("too-weak" if lo > 8.0 else "too-strong" if hi < 0.25 else
-                        "right-order" if 0.5 <= lo and hi <= 2.0 else "intermediate")
+        nofit = [p for p in sstar if detail[p]["no_fit"]]
+        g["reading"] = ("no-fit(" + ",".join(nofit) + ")") if nofit else classify(sstar)
+        g["reading_pp"] = classify({p: detail[p]["s_pp"] for p in detail})
     else:
         g["I1"] = "UNDETERMINED(no measured rise)"
         g["I2"] = "UNDETERMINED(no measured rise)"
@@ -166,7 +196,7 @@ def main():
         g["I4"] = f"UNDETERMINED(missing {e})"
     g["primary"] = prim
     summary = {"version": VERSION, "inel": ti.VERSION, "grades": g, "s_star": sstar,
-               "G_ep_Al": G_EP_AL, "meas": meas, "results": res}
+               "s_star_detail": detail, "G_ep_Al": G_EP_AL, "meas": meas, "results": res}
     with open(os.path.join(args.out, "tbi-summary.json"), "w") as fh:
         json.dump(summary, fh, indent=1, default=float)
     for k, v in g.items():

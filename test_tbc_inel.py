@@ -7,6 +7,8 @@ import numpy as np
 
 import tbc_inel as ti
 
+G_EP = float(np.sqrt(2.45e17 * 6.0))   # the Al electron-phonon term used by run_tbc_inel
+
 
 def debye_side(numax, ngp=400, nb=3, vcell=2e-29, t=5e-11, gamma_per_thz2=0.002, seed=0):
     """A synthetic side: Debye-like spectrum up to numax (THz), gamma ~ nu^2 (THz)."""
@@ -117,6 +119,38 @@ class TestInel(unittest.TestCase):
         s2 = ti.solve_scale(g_el, g_in, rise_meas=30e6, g_ep=1.2e9)
         tot = lambda k: ti.series(1.2e9, g_el[k] + s2 * g_in[k])
         self.assertAlmostEqual((tot(1) - tot(0)) / 30e6, 1.0, places=6)
+
+    def test_solve_scale_series_peak(self):
+        # With a series electron-phonon term the rise peaks and falls back towards 0 at large s.
+        # Here the rise at s = 1000 (~36 MW) is below the target (60 MW) although s ~ 10-20
+        # matches it: 0.1.0 returned inf for this case.
+        g_el = (400e6, 400e6)
+        g_in = (15e6, 26.25e6)
+        self.assertLess(ti.model_rise(g_el, g_in, 1000.0, G_EP), 60e6)
+        s = ti.solve_scale(g_el, g_in, rise_meas=60e6, g_ep=G_EP)
+        self.assertTrue(10.0 < s < 20.0, s)
+        self.assertAlmostEqual(ti.model_rise(g_el, g_in, s, G_EP) / 60e6, 1.0, places=6)
+        self.assertLess(ti.model_rise(g_el, g_in, 0.99 * s, G_EP), 60e6)   # smallest root
+
+    def test_solve_scale_unreachable(self):
+        g_el = (400e6, 400e6)
+        g_in = (15e6, 26.25e6)
+        s_max, r_max = ti.max_rise(g_el, g_in, g_ep=G_EP)
+        self.assertTrue(100e6 < r_max < 140e6, r_max)
+        self.assertTrue(1.0 < s_max < 1000.0, s_max)
+        self.assertEqual(ti.solve_scale(g_el, g_in, rise_meas=200e6, g_ep=G_EP), float("inf"))
+        s = ti.solve_scale(g_el, g_in, rise_meas=0.99 * r_max, g_ep=G_EP)
+        self.assertTrue(np.isfinite(s) and s <= s_max * 1.01, s)
+
+    def test_ep_pair(self):
+        g_el = (300e6, 320e6)
+        g_in = (20e6, 40e6)
+        a = ti.solve_scale(g_el, g_in, rise_meas=30e6, g_ep=G_EP)
+        b = ti.solve_scale(g_el, g_in, rise_meas=30e6, g_ep=(G_EP, G_EP))
+        self.assertAlmostEqual(a, b, places=10)
+        # a falling series conductance at T_hi lowers the rise for the same s
+        self.assertLess(ti.model_rise(g_el, g_in, 2.0, (G_EP, 0.8 * G_EP)),
+                        ti.model_rise(g_el, g_in, 2.0, G_EP))
 
 
 if __name__ == "__main__":

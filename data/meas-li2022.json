@@ -1,0 +1,19 @@
+{
+ "units": "W m^-2 K^-1 (temperatures in K are the keys)",
+ "source": "Li et al., Nat. Commun. 13, 4901 (2022), doi:10.1038/s41467-022-32600-w, Fig. 1 (measured TDTR thermal boundary conductance). The paper has no source-data file. Values were read off the figure on 2026-11-18 by MV2's hands, a reader who had seen no model output. Readings at 300-700 K were interpolated linearly between neighbouring measured points. Reading uncertainty is about +-5 MW m^-2 K^-1 (about 1.5 %) in G and +-2 % in T. The published error bars are about +-8-10 %. Al/Si uses Sample 1 (the sharper interface).",
+ "Al/Si": {"300": 379000000, "400": 400000000, "500": 446000000, "600": 478000000, "700": 530000000},
+ "Al/GaN": {"300": 422000000, "400": 432000000, "500": 448000000, "600": 479000000, "700": 546000000},
+ "Al/Si sample 2": {"300": 310000000, "400": 330000000, "note": "highest set temperature 600 K; 700 K not measured"},
+ "highest_T_measured": {"Al/Si": 705, "Al/GaN": 705, "Al/Si sample 2": 606},
+ "Li_G_pp_SI_fig10": {
+  "note": "Phonon-phonon conductance after Li et al. removed their electron-phonon term (Supplementary Fig. 10), read off the figure, +-3 %. The numbers for g and Lambda_p are not stated. G_ep = sqrt(g Lambda_p), with g from Waldecker et al., PRX 6, 021003 (2016) and Lambda_p from Jain and McGaughey, PRB 93, 081206 (2016).",
+  "Al/Si": {"400": 585000000, "700": 1170000000},
+  "Al/GaN": {"400": 688000000, "600": 1093000000}
+ },
+ "Al_film_total_Lambda_SI_tables_4_6": {
+  "note": "Total thermal conductivity of the Al film used in the TDTR fit (W m^-1 K^-1), not the lattice part",
+  "80": 127, "100": 140, "120": 150, "150": 160, "190": 168, "240": 175, "298": 182, "350": 186,
+  "400": 189, "500": 193, "600": 197, "700": 198
+ },
+ "Al_thickness_nm": {"Al/Si": 80, "Al/Si sample 2": 153, "Al/GaN": 112}
+}

@@ -7,8 +7,8 @@ Solid Interfaces"). Made with AI agents working in MV2's name; not yet checked b
 thermal-transport specialist.
 
 - `PLAN.md`: the question, the benchmarks and the expectations written before each job runs.
-  Dated amendments (`PLAN-amendment-0.2.md`, `PLAN-amendment-0.3.md`, ...) add stages without changing
-  earlier text.
+  Dated amendments (`PLAN-amendment-0.2.md`, `PLAN-amendment-0.3.md`, `PLAN-amendment-0.3.1.md`, ...)
+  add stages without changing earlier text.
 - `tbc_transport.py`: elastic baselines (full-band and Debye DMM, Debye AMM, gray Simons/Zeng-Chen
   correction, phonon radiation limit, electron-phonon series resistance). numpy only.
 - `tbc_phonons.py`: bulk phonons from open universal potentials (MACE-MPA-0, MIT; orb-v3, Apache-2.0)
@@ -27,11 +27,21 @@ thermal-transport specialist.
   bond geometry of the terminating layers. In the classical limit it grows in proportion to T. It runs
   on stage 2a's published lifetimes and is graded against the measured slopes of Li et al. (2022).
   numpy only.
+- `data/meas-li2022.json`: the measured Al/Si and Al/GaN conductances (80-700 K) of Li et al.,
+  Nat. Commun. 13, 4901 (2022), read off their Fig. 1 without sight of any model output.
 - Unit tests: `python -m unittest -v test_tbc_transport test_tbc_bte test_tbc_inel`.
 
 Status (2026-11-18): stages 1, 2a and 2b are pre-registered. The stage 1 and 2a jobs are queued.
-Stage 2b runs once stage 2a's lifetimes are published and the measured slopes have been read off
-the figure. No results yet.
+Stage 2b runs once stage 2a's lifetimes are published. No model results yet.
+
+Amendment 0.3.1 records the measured inputs and fixes a solver error before any model output
+existed. With the electron-phonon resistance in series, the fitted rise is not monotonic in the
+channel strength, and 0.1.0 would have read "too weak" whatever the model gave. The amendment also
+works out what the measurements alone imply. If the rise above 400 K comes from any process that
+grows in proportion to T on top of a saturated elastic part, that process already carries at least
+43 % (Al/Si) and 35 % (Al/GaN) of the phonon-side conductance at 400 K. The authors' own
+electron-phonon correction makes the phonon side grow faster than T. That is not decisive within the
+error bars.
 
 Stage 2a tests a scaling argument (PLAN-amendment-0.2.md, section 2). For semi-infinite solids
 and an elastic interface, multiplying every bulk scattering rate by the same factor leaves the

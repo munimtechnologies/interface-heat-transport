@@ -3,7 +3,8 @@
 """tbc_inel: an inelastic (three-phonon) channel across a solid-solid interface whose strength
 comes only from bulk quantities: phono3py three-phonon rates, phonon densities of states and the
 crystallography of the terminating atomic layers. Stage 2b of the interface-heat-transport study
-(PLAN-amendment-0.3.md). numpy only; SI units unless a name says THz.
+(PLAN-amendment-0.3.md; scale-factor solver corrected in PLAN-amendment-0.3.1.md). numpy only; SI
+units unless a name says THz.
 
 Model (interfacial anharmonic bridge, IAB)
 ------------------------------------------
@@ -46,10 +47,16 @@ tbc_bte (stage 2a): its length t_i is fixed by the lattice, not by the mean free
 parallel to the elastic two-stream conductance of tbc_bte.
 
 Every number here is a bulk or crystallographic input. No interface conductance is fitted.
+
+0.1.1: with an electron-phonon conductance in series, the model's rise G(T_hi) - G(T_lo) is not
+monotonic in the scale factor s. It grows, peaks, and falls back to 0 as both temperatures approach
+the series limit. 0.1.0's bisection on [0, 1000] therefore returned inf whenever the rise at
+s = 1000 was below the measured one, even when a small s matched it. solve_scale now returns the
+smallest matching s found by a log scan plus bisection; max_rise reports the peak.
 """
 import numpy as np
 
-VERSION = "mv2 tbc-inel 0.1.0"
+VERSION = "mv2 tbc-inel 0.1.1"
 
 KB = 1.380649e-23
 H = 6.62607015e-34
@@ -225,22 +232,55 @@ def series(*gs):
     return 1.0 / sum(1.0 / g for g in gs)
 
 
-def solve_scale(g_el, g_in, rise_meas, g_ep=None, lo=0.0, hi=1000.0):
-    """Factor s such that the model's G(T_hi) - G(T_lo) equals the measured rise, where
-    G(T) = series(g_ep, g_el(T) + s g_in(T)) (g_ep None: no series term). g_el, g_in: pairs
-    (value at T_lo, value at T_hi). Returns s (0 if the elastic rise alone already reaches the
-    measured rise, inf if even s = hi does not)."""
-    def total(s, k):
-        g = g_el[k] + s * g_in[k]
-        return series(g_ep, g) if g_ep else g
+def _ep_pair(g_ep):
+    """g_ep: None (no series term), one value for both temperatures, or (value at T_lo, at T_hi)."""
+    if g_ep is None:
+        return (None, None)
+    if np.ndim(g_ep) == 0:
+        return (float(g_ep), float(g_ep))
+    return (float(g_ep[0]), float(g_ep[1]))
 
+
+def model_rise(g_el, g_in, s, g_ep=None):
+    """G(T_hi) - G(T_lo) of G(T) = series(g_ep(T), g_el(T) + s g_in(T)); g_el, g_in, g_ep pairs."""
+    ep = _ep_pair(g_ep)
+
+    def total(k):
+        g = g_el[k] + s * g_in[k]
+        return series(ep[k], g) if ep[k] else g
+    return total(1) - total(0)
+
+
+def _scan(lo, hi, n):
+    s = np.geomspace(1e-4, hi, n)
+    return np.concatenate(([lo], s[(s > lo) & (s <= hi)]))
+
+
+def max_rise(g_el, g_in, g_ep=None, lo=0.0, hi=1000.0, n_scan=4001):
+    """(s, rise) at the largest model rise found on a log scan of s in [lo, hi]."""
+    ss = _scan(lo, hi, n_scan)
+    r = np.array([model_rise(g_el, g_in, s, g_ep) for s in ss])
+    i = int(np.argmax(r))
+    return float(ss[i]), float(r[i])
+
+
+def solve_scale(g_el, g_in, rise_meas, g_ep=None, lo=0.0, hi=1000.0, n_scan=4001):
+    """Smallest factor s in [lo, hi] such that the model's G(T_hi) - G(T_lo) equals the measured
+    rise, where G(T) = series(g_ep, g_el(T) + s g_in(T)) (g_ep None: no series term; one value; or
+    a pair for T_lo, T_hi). g_el, g_in: pairs (value at T_lo, value at T_hi). Returns 0 if the
+    elastic rise alone already reaches the measured rise, inf if no s in [lo, hi] reaches it (see
+    max_rise for the largest rise the model can give)."""
     def rise(s):
-        return total(s, 1) - total(s, 0)
+        return model_rise(g_el, g_in, s, g_ep)
     if rise(lo) >= rise_meas:
         return 0.0
-    if rise(hi) < rise_meas:
+    ss = _scan(lo, hi, n_scan)
+    r = np.array([rise(s) for s in ss])
+    idx = np.nonzero(r >= rise_meas)[0]
+    if idx.size == 0:
         return float("inf")
-    a, b = lo, hi
+    j = int(idx[0])
+    a, b = float(ss[j - 1]), float(ss[j])
     for _ in range(200):
         m = 0.5 * (a + b)
         if rise(m) < rise_meas:
