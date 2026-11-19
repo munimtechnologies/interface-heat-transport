@@ -1,0 +1,13 @@
+test_al_si_debye_magnitude (test_tbc_transport.TestTransport.test_al_si_debye_magnitude) ... ok
+test_amm (test_tbc_transport.TestTransport.test_amm) ... ok
+test_debye_radiation_classical_limit (test_tbc_transport.TestTransport.test_debye_radiation_classical_limit) ... ok
+test_dmm_identical_and_detailed_balance (test_tbc_transport.TestTransport.test_dmm_identical_and_detailed_balance) ... ok
+test_flux_spectrum_isotropic_vs_oriented (test_tbc_transport.TestTransport.test_flux_spectrum_isotropic_vs_oriented) ... ok
+test_heat_capacity_limits (test_tbc_transport.TestTransport.test_heat_capacity_limits) ... ok
+test_series_and_ep (test_tbc_transport.TestTransport.test_series_and_ep) ... ok
+test_simons (test_tbc_transport.TestTransport.test_simons) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.023s
+
+OK

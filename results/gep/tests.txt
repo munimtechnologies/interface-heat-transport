@@ -1,0 +1,14 @@
+test_amplification (test_tbc_gep.TestGep.test_amplification) ... ok
+test_gep_mr (test_tbc_gep.TestGep.test_gep_mr) ... ok
+test_infer_al_gan_t_half (test_tbc_gep.TestGep.test_infer_al_gan_t_half) ... ok
+test_infer_al_si_t_half (test_tbc_gep.TestGep.test_infer_al_si_t_half) ... ok
+test_infer_constant_gep_not_convex (test_tbc_gep.TestGep.test_infer_constant_gep_not_convex) ... ok
+test_lam_p_T (test_tbc_gep.TestGep.test_lam_p_T) ... ok
+test_linear_floor_matches_amendment_031 (test_tbc_gep.TestGep.test_linear_floor_matches_amendment_031) ... ok
+test_phonon_side_and_series (test_tbc_gep.TestGep.test_phonon_side_and_series) ... ok
+test_power_law (test_tbc_gep.TestGep.test_power_law) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.000s
+
+OK

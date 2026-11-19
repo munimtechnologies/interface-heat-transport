@@ -1,0 +1,4 @@
+mv2 run-tbc 0.1.0 | mv2 tbc-transport 0.1.0
+mace-mpa-0 Al: a,b,c=['4.0387', '4.0387', '4.0387'] max=7.93 THz (ref 9.7) min=0.240 imag=0.0000 conv=True 13.6 s
+mace-mpa-0 Si: a,b,c=['5.4674', '5.4674', '5.4674'] max=12.68 THz (ref 15.6) min=0.245 imag=0.0000 conv=True 18.4 s
+mace-mpa-0 GaN: a,b,c=['3.2047', '3.2047', '5.2503'] max=21.10 THz (ref 16.8) min=0.333 imag=0.0000 conv=True 29.8 s

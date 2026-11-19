@@ -1,0 +1,21 @@
+test_floor_bound (test_tbc_direct.TestBounds.test_floor_bound) ... ok
+test_linear_bound (test_tbc_direct.TestBounds.test_linear_bound) ... ok
+test_bad_input (test_tbc_direct.TestCircuit.test_bad_input) ... ok
+test_limit_approaches_exact_when_kp_small (test_tbc_direct.TestCircuit.test_limit_approaches_exact_when_kp_small) ... ok
+test_no_direct_channel_is_majumdar_reddy (test_tbc_direct.TestCircuit.test_no_direct_channel_is_majumdar_reddy) ... ok
+test_only_direct_channel (test_tbc_direct.TestCircuit.test_only_direct_channel) ... ok
+test_with_direct_channel (test_tbc_direct.TestCircuit.test_with_direct_channel) ... ok
+test_channel_larger_than_G_gives_none (test_tbc_direct.TestInfer.test_channel_larger_than_G_gives_none) ... ok
+test_dsf_size_channel_al_gan (test_tbc_direct.TestInfer.test_dsf_size_channel_al_gan) ... ok
+test_dsf_size_channel_flattens_al_si (test_tbc_direct.TestInfer.test_dsf_size_channel_flattens_al_si) ... ok
+test_large_channel_makes_phonon_side_fall (test_tbc_direct.TestInfer.test_large_channel_makes_phonon_side_fall) ... ok
+test_no_room (test_tbc_direct.TestMinRise.test_no_room) ... ok
+test_sample2_predictions (test_tbc_direct.TestMinRise.test_sample2_predictions) ... ok
+test_g_from_lambda (test_tbc_direct.TestSergeev.test_g_from_lambda) ... ok
+test_linear_in_T (test_tbc_direct.TestSergeev.test_linear_in_T) ... ok
+test_sigma_e_values (test_tbc_direct.TestSergeev.test_sigma_e_values) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.001s
+
+OK
