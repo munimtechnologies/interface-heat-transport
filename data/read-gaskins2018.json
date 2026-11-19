@@ -1,0 +1,28 @@
+{
+ "source": "Gaskins et al., 'Thermal Boundary Conductance Across Heteroepitaxial ZnO/GaN Interfaces: Assessment of the Phonon Gas Model', Nano Letters 18, 7469-7477 (2018), doi 10.1021/acs.nanolett.8b02837; correction Nano Lett. 19, 1408 (2019), doi 10.1021/acs.nanolett.9b00022",
+ "read_by": "MV2's hands (a Claude agent on the Dell desktop), 2026-11-19, blind to every model result and to MV2's notes; author copy of the paper",
+ "units": "MW m^-2 K^-1",
+ "series": "one ZnO/GaN series, filled squares, 8 points from 79 to 500 K; the text says 180 and 95 nm films were averaged (not separated in the figure)",
+ "axes": "both axes logarithmic",
+ "points_used": {
+  "300": {"G": 490, "up": 107, "down": 111, "note": "as plotted; the text gives 490 +150/-110"},
+  "385": {"G": 524, "up": 121, "down": 124, "note": "nearest measured point to 400 K, temperature read +-3 %"},
+  "500": {"G": 503, "up": 127, "down": 131}
+ },
+ "interpolated_400": {"G": 521, "up": 122, "down": 125, "note": "no point at 400 K; interpolated"},
+ "highest_T": 500,
+ "error_bars": "95 % confidence contour of the TDTR fit over h(ZnO/GaN) and h(Al/ZnO), with the ZnO and GaN thermal conductivities fixed from control samples; variation of transducer thickness, heat capacity or film thickness not stated",
+ "correlation_between_temperatures": "not stated",
+ "high_T_wording": ["AGF calculations capture the low temperature values but underpredict the trends and values at high temperatures", "At higher temperatures the DMM and AGF calculations converge, while still underpredicting the experimental data by nearly a factor of 2"],
+ "model_curves": {
+  "AGF": {"300": 300, "500": 305},
+  "DMM": {"300": 250, "500": 280},
+  "zeta=1 isotropic": {"300": 680, "500": 780},
+  "zeta=1 (AGF)": {"300": 1190, "500": 1330}
+ },
+ "correction": "adds a compiled Supporting Information PDF only; no change to TBC values, error bars or figures",
+ "reading_uncertainty_points": 10,
+ "reading_uncertainty_bar_ends": 15,
+ "reading_uncertainty_curves": 20,
+ "comparison_with_arxiv_v1_reading": "data/read-nonmetal.json (arXiv:1710.09525): 491 / 520 / 502 at 300 / 400 / 500 K; DMM 240 / 278"
+}

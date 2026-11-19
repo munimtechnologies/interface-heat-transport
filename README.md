@@ -7,8 +7,8 @@ Solid Interfaces"). Made with AI agents working in MV2's name; not yet checked b
 thermal-transport specialist.
 
 - `PLAN.md`: the question, the benchmarks and the expectations written before each job runs.
-  Dated amendments (`PLAN-amendment-0.2.md`, `0.3`, `0.3.1`, `0.3.2`, `0.3.3`, `0.4`, `0.5`, ...) add
-  stages and grades without changing earlier text.
+  Dated amendments (`PLAN-amendment-0.2.md`, `0.3`, `0.3.1`, `0.3.2`, `0.3.3`, `0.4`, `0.5`, `0.5.1`, ...)
+  add stages and grades without changing earlier text.
 - `tbc_transport.py`: elastic baselines (full-band and Debye DMM, Debye AMM, gray Simons/Zeng-Chen
   correction, phonon radiation limit, electron-phonon series resistance). numpy only.
 - `tbc_phonons.py`: bulk phonons from open universal potentials (MACE-MPA-0, MIT; orb-v3, Apache-2.0)
@@ -18,7 +18,8 @@ thermal-transport specialist.
   mode-resolved bulk lifetimes on both sides of an elastic (DMM) interface. In the gray limit it
   reduces exactly to the Simons/Zeng-Chen corrected DMM. numpy only. Its closest published relative is
   the McKelvey-Shockley flux model of a finite Si/Ge junction with first-principles three-phonon
-  rates (arXiv:1808.10713).
+  rates (arXiv:1808.10713). The conductance it returns is the "dressed" one, referred to local
+  temperatures as in Shi, Yang, Fisher and Ruan's non-equilibrium Landauer approach (arXiv:1812.07910).
 - `tbc_anh.py`, `run_tbc_anh.py`: stage-2a job. It computes three-phonon and isotope lifetimes
   (phono3py) of Al, Si, GaN, AlN and diamond from the same open potentials, then G(T) from
   `tbc_bte` for Al/Si, Al/GaN and AlN/GaN.
@@ -44,30 +45,41 @@ thermal-transport specialist.
   (`results/nonmetal/bounds-exploratory.json`) and the pre-registered grades Z0-Z5.
   `run_tbc_zno` is the job: ZnO, GaN and AlN lifetimes, then elastic G_BTE plus the stage 2b channel
   for ZnO/GaN and AlN/GaN. It imports stages 2a and 2b and copies none of their code.
+- `tbc_dressed.py`: amendment 0.5.1. The bound under the published error bars, the exact dressed
+  DMM conductance (1/G_d = 1/G_0 - 1/(2R_1) - 1/(2R_2)), the corrected bound for an elastic part that
+  falls, and the supplementary grades Z1g, Z6, Z7 of stage 3a (`results/nonmetal/bounds-0.5.1.json`).
+  Pure Python.
 - `data/meas-li2022.json`: the measured Al/Si and Al/GaN conductances (80-700 K) of Li et al.,
   Nat. Commun. 13, 4901 (2022), read off their Fig. 1 without sight of any model output.
   `data/read-d1d3.json`: Li et al.'s rough Al/Si Sample 2 and Cheng et al.'s epitaxial
   Al/sapphire (Commun. Phys. 2020, arXiv:1906.05484), read blind to the thresholds they were graded
   against. `data/read-nonmetal.json`: ZnO/GaN (Gaskins et al., arXiv:1710.09525), bonded GaN/AlN
   (UCLA, APL 2024) and Walwil et al.'s GaN/AlN, AlN/SiC and GaN/SiC (JAP 2025), read blind to every
-  model result.
+  model result. `data/read-gaskins2018.json`: the published ZnO/GaN figure (Nano Lett. 2018) with
+  its error bars and how they were obtained.
 - `readings/`: notes from the papers this work builds on.
-- Unit tests: `python -m unittest -v test_tbc_transport test_tbc_bte test_tbc_inel test_tbc_gep test_tbc_direct test_tbc_grade_d test_tbc_nonmetal`.
+- Unit tests: `python -m unittest -v test_tbc_transport test_tbc_bte test_tbc_inel test_tbc_gep test_tbc_direct test_tbc_grade_d test_tbc_nonmetal test_tbc_dressed`.
 
 Status (2026-11-19): one graded result so far (amendment 0.4, below). Stages 1, 2a, 2b and 3a are
 pre-registered and their jobs are queued, so there are no model results from them yet.
 
-**Amendment 0.5 (exploratory bound + stage 3a pre-registered).** Interfaces between two
-non-metals have no electron route. Above room temperature they show phonon physics alone. Measured
-ZnO/GaN conductance is flat from 300 to 500 K (491, 520, 502 MW m^-2 K^-1, read off Gaskins et
-al.'s figure). Any channel built from three-phonon rates grows at least in proportion to T, and the
-elastic part cannot fall. So at central readings such a channel can carry at most 16.5 MW m^-2 K^-1
-(3.4 %) of the ZnO/GaN conductance at 300 K. Moving each reading by its full reading error gives
-at most 76 (16 %). The measurement sits 191 above the AGF prediction. If that gap were inelastic,
-G(500 K) would have to be at least 623, and it is 502. This is not decisive: the published error
-bars (+31 %/-22 %) are much larger than the reading error. Job `tbc-zno-v1` now tests our no-fit
-inelastic channel against this bound (Z1) and the elastic model against the measured levels (Z3,
-Z4).
+**Amendment 0.5.1 (correction).** The ZnO/GaN bound of amendment 0.5 does not hold up. The
+published error bars (95 % confidence contours of a separate fit at each temperature) allow a
+three-phonon channel of up to 229 MW m^-2 K^-1 (47 % of G) at 300 K if the errors are independent;
+16.5-19.5 holds only if they are fully shared. The bound also assumed that the elastic part cannot
+fall with temperature. That fails for the conductance a TDTR fit reports: for a DMM interface it is
+exactly 1/G_d = 1/G_0 - 1/(2R_1) - 1/(2R_2), which falls when the stiffer side's radiation limit
+keeps growing after the softer side has saturated (as Shi, Yang, Fisher and Ruan, arXiv:1812.07910,
+report for ZnO/GaN). Their non-equilibrium treatment also anticipated our reading that the gap above
+AGF is mostly elastic. Three supplementary grades (Z1g, Z6, Z7) now test this in stage 3a, filed
+before any output.
+
+**Amendment 0.5 (exploratory bound + stage 3a pre-registered; bound corrected in 0.5.1).**
+Interfaces between two non-metals have no electron route. Measured ZnO/GaN conductance is flat from
+300 to 500 K (491, 520, 502 MW m^-2 K^-1, read off Gaskins et al.'s figure). With a non-falling
+elastic part and the reading error only, a three-phonon channel could carry at most 16.5 (central)
+to 76 MW m^-2 K^-1 at 300 K. Job `tbc-zno-v1` tests our no-fit inelastic channel against this
+(Z1) and the elastic model against the measured levels (Z3, Z4).
 
 **Amendment 0.4 (graded, pre-registered blind test).** Sergeev's model of a direct route from a
 metal's electrons into the substrate's phonons uses only bulk properties of the metal and grows in

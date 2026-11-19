@@ -1,0 +1,24 @@
+{
+ "note": "PLAN-amendment-0.5.1 section 2. Worked by hand, recomputed by test_tbc_dressed.py (tbc_dressed.numbers). MW m^-2 K^-1. Exploratory, not pre-registered.",
+ "inputs": "data/read-gaskins2018.json (published Nano Lett. 2018 figure): 490 +107/-111 (300 K), 524 +121/-124 (385 K), 503 +127/-131 (500 K); 95 % bars -> 1 sigma = mean arm / 1.96",
+ "sigma_1s": {"300": 55.6133, "385": 62.5011, "500": 65.8175},
+ "profile_I300_upper95": 229.05,
+ "profile_chi2_min": 0.05353,
+ "profile_a_at_min": 0.0,
+ "profile_share300": 0.46745,
+ "two_point_I300_upper95": 232.10,
+ "correlated_I300_central_pub": 19.5,
+ "correlated_I300_reading_worst_pub": 49.5,
+ "pub_minus_arxiv": {"300": -1.0, "400": 1.0, "500": 1.0},
+ "dmm_pub_minus_arxiv_300": 10.0,
+ "gan_top_cap_ratio_300_500": 1.793239,
+ "kappa_e_floor_dmm_crude": 0.693314,
+ "I300_bound_at_crude_floor_central_pub": 167.746,
+ "twice_dmm_pub": {"300": 500.0, "500": 560.0},
+ "reading": {
+  "profile": "channel I = a T/300 plus any non-decreasing elastic part, independent Gaussian errors, Delta chi^2 = 2.71 (approximate one-sided 95 %)",
+  "two_point": "amendment 0.5's bound with one-sided 95 % on (G500 - G300), errors independent",
+  "correlated": "errors fully shared between temperatures (common scale): only the reading error remains",
+  "crude_floor": "a DMM interface whose dressed conductance falls as far as the closed form allows (G_0 fixed, radiation limits grown by the 22 THz heat-capacity ratio, G_d/G_0 = 2); the bound with that falling elastic part, at central published values"
+ }
+}
