@@ -1,0 +1,22 @@
+{
+ "units": "MW m^-2 K^-1 (temperatures in K are the keys)",
+ "read": "2026-11-19 by MV2's hands, after PLAN-amendment-0.3.3.md (which fixes the D1-D4 thresholds) was public, and blind to every model result and to the thresholds. Values are read off published figures; '~' readings interpolated linearly between neighbouring measured points.",
+ "li2022_sample2": {
+  "source": "Li et al., Nat. Commun. 13, 4901 (2022), doi:10.1038/s41467-022-32600-w, Fig. 1, Al/Si Sample 2 (the rougher interface)",
+  "G": {"300": 308, "400": 329, "500": 338, "600": 347},
+  "highest_T": 600,
+  "reading_uncertainty": 6
+ },
+ "cheng2020_al_sapphire": {
+  "source": "Cheng et al., Commun. Phys. (2020), doi:10.1038/s42005-020-0383-6, arXiv:1906.05484, measured TBC of epitaxial Al/sapphire versus temperature (samples Sub100 and Sub200 shown)",
+  "G": {"300": 346, "400": 362, "480": 357},
+  "highest_T": 480,
+  "reading_uncertainty": 5,
+  "quotes": [
+   "the TBC reaches a plateau because the phonons in the Al side is fully excited",
+   "The temperature independence of Al-sapphire TBC at high temperatures suggests that the effect of inelastic phonon scattering is negligible, especially at high temperatures.",
+   "The estimated electron-phonon coupling thermal resistance within Al is about 20% of the overall thermal resistance but we did not observe clear TBC change due to this effect."
+  ]
+ },
+ "hands_last_line": "D1D3: Li S2 G at 300/400/500/600 K = ~308/~329/~338/~347 | Li S2 highest T = ~600 K | Al/sapphire samples shown = Sub100 and Sub200 | Al/sapphire TBC 300:~346, 400:~362, 480:~357 | Al/sapphire highest T = ~480 K | reading uncertainty = +-6 (Li), +-5 (Cheng data), +-4 (curves) MW m^-2 K^-1 | Cheng high-T wording = \"the TBC reaches a plateau because the phonons in the Al side is fully excited\""
+}

@@ -1,0 +1,47 @@
+{
+ "version": "mv2 tbc-grade-d 0.1.0",
+ "what": "Grade of the blind test D1-D4 pre-registered in PLAN-amendment-0.3.3.md section 5, on the readings in data/read-d1d3.json. Conductances in MW m^-2 K^-1, slopes s in MW m^-2 K^-2. Excluded means measured G(T2) < 0.85 G_min(T2).",
+ "provenance": "Worked out by hand on 2026-11-19 from tbc_direct.min_rise_prediction. test_tbc_grade_d.py recomputes every number with tbc_grade_d.run and the commit is made only if all agree within the stated tolerances (0.3 MW for G_min, 0.002 for s). For the full machine output run: python tbc_grade_d.py --read data/read-d1d3.json --meas data/meas-li2022.json --out results/dtest/machine",
+ "G_ep_law": "G_ep(T) = 1260 (400/T)^0.5 (amendment 0.3.2)",
+ "cut": 0.85,
+ "slopes_MW_per_K": {"sergeev_g_DFT": 0.59159, "sergeev_table1": 0.88, "sergeev_lambda": 0.97845,
+                     "sergeev_eq4_printed": 1.17614, "DSF_107_linear": 0.35667},
+ "D1_D2_li_sample2": {
+  "T1": 400, "G1": 329, "T2": 600, "G2": 347,
+  "sergeev_g_DFT": {"G_min": 445.82, "threshold": 378.95, "ratio": 0.7783, "excluded": true},
+  "DSF_107_linear": {"G_min": 394.34, "threshold": 335.19, "ratio": 0.8800, "excluded": false},
+  "sergeev_table1": {"G_min": null, "excluded": true, "note": "channel alone at 400 K (352) exceeds G(400)"},
+  "sergeev_lambda": {"G_min": null, "excluded": true, "note": "channel alone at 400 K (391) exceeds G(400)"},
+  "sergeev_eq4_printed": {"G_min": null, "excluded": true, "note": "channel alone at 400 K (470) exceeds G(400)"},
+  "worst_case_reading": {"sergeev_g_DFT": {"G1": 323, "G2": 353, "G_min": 440.01, "excluded": true},
+                         "DSF_107_linear": {"G1": 335, "G2": 341, "G_min": 399.95, "excluded": false}},
+  "s_allowed_cut085": 0.4188, "s_allowed_central": 0.15134, "sigma_e_300_allowed_central": 45.40
+ },
+ "D3_cheng_al_sapphire": {
+  "T1": 300, "G1": 346, "T2": 480, "G2": 357, "span_K": 180, "graded": true,
+  "sergeev_g_DFT": {"G_min": 447.47, "threshold": 380.35, "ratio": 0.7978, "excluded": true},
+  "DSF_107_linear": {"G_min": 400.23, "threshold": 340.20, "ratio": 0.8920, "excluded": false},
+  "sergeev_table1": {"G_min": 503.19, "excluded": true},
+  "sergeev_lambda": {"G_min": 521.6, "excluded": true},
+  "sergeev_eq4_printed": {"G_min": null, "excluded": true, "note": "channel alone at 300 K (352.8) exceeds G(300)"},
+  "worst_case_reading": {"sergeev_g_DFT": {"G1": 341, "G2": 362, "G_min": 442.76, "excluded": true},
+                         "DSF_107_linear": {"G1": 351, "G2": 352, "G_min": 404.82, "excluded": false}},
+  "s_allowed_cut085": 0.4540, "s_allowed_central": 0.14829, "sigma_e_300_allowed_central": 44.49
+ },
+ "grades": {
+  "D1": "EXCLUDED (expected excluded, prior 75 %)",
+  "D2": "NOT EXCLUDED (expected excluded, prior 55 %: this expectation failed)",
+  "D3_sergeev_g_DFT": "EXCLUDED (expected excluded, prior 70 %)",
+  "D3_DSF_107_linear": "NOT EXCLUDED",
+  "D4": "TRIGGERED: D1 and D3 both exclude Sergeev's model. No bulk-only direct channel of Sergeev's size is present at Al interfaces; stage 3 carries no Sergeev channel.",
+  "all_sergeev_versions_excluded_both": true
+ },
+ "exploratory_not_preregistered": {
+  "note": "At central readings and with no margin, the two flat interfaces allow an interface-independent T-linear direct channel of at most s = 0.148 (sigma_e(300 K) <= 44.5). Removing that largest allowed channel from Li et al.'s Sample 1 (the sharp Al/Si interface) leaves a phonon side that still rises steeply.",
+  "s_cap": 0.14829,
+  "sample1_phonon_side": {"T": [300, 400, 500, 600, 700], "G_pp": [434.39, 466.94, 554.97, 625.58, 771.35]},
+  "sample1_ratio_700_400": 1.652,
+  "cheng_ep_share_300K": 0.2378,
+  "cheng_ep_share_note": "G(300)/G_ep(300) = 346/1454.9 = 24 % of the Al/sapphire resistance sits in the Al electron-phonon step under our bulk law; Cheng et al. independently estimate 'about 20%'."
+ }
+}

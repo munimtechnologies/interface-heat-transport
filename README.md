@@ -7,8 +7,8 @@ Solid Interfaces"). Made with AI agents working in MV2's name; not yet checked b
 thermal-transport specialist.
 
 - `PLAN.md`: the question, the benchmarks and the expectations written before each job runs.
-  Dated amendments (`PLAN-amendment-0.2.md`, `0.3`, `0.3.1`, `0.3.2`, `0.3.3`, ...) add stages
-  without changing earlier text.
+  Dated amendments (`PLAN-amendment-0.2.md`, `0.3`, `0.3.1`, `0.3.2`, `0.3.3`, `0.4`, ...) add stages
+  and grades without changing earlier text.
 - `tbc_transport.py`: elastic baselines (full-band and Debye DMM, Debye AMM, gray Simons/Zeng-Chen
   correction, phonon radiation limit, electron-phonon series resistance). numpy only.
 - `tbc_phonons.py`: bulk phonons from open universal potentials (MACE-MPA-0, MIT; orb-v3, Apache-2.0)
@@ -37,13 +37,29 @@ thermal-transport specialist.
   (the two-temperature circuit of Lu, Wang and Ruan, PRB 93, 064302, 2016, re-derived in closed
   form), Sergeev's no-fit model of that channel, and the bounds Li et al.'s data put on it
   (PLAN-amendment-0.3.3.md). Pure Python.
+- `tbc_grade_d.py`: grades the blind test D1-D4 of amendment 0.3.3 (PLAN-amendment-0.4.md); the
+  grade is in `results/dtest/grade-d1d4.json`. Pure Python.
 - `data/meas-li2022.json`: the measured Al/Si and Al/GaN conductances (80-700 K) of Li et al.,
   Nat. Commun. 13, 4901 (2022), read off their Fig. 1 without sight of any model output.
+  `data/read-d1d3.json`: Li et al.'s rough Al/Si Sample 2 and Cheng et al.'s epitaxial
+  Al/sapphire (Commun. Phys. 2020, arXiv:1906.05484), read blind to the thresholds they were graded against.
 - `readings/`: notes from the papers this work builds on.
-- Unit tests: `python -m unittest -v test_tbc_transport test_tbc_bte test_tbc_inel test_tbc_gep test_tbc_direct`.
+- Unit tests: `python -m unittest -v test_tbc_transport test_tbc_bte test_tbc_inel test_tbc_gep test_tbc_direct test_tbc_grade_d`.
 
-Status (2026-11-19): stages 1, 2a and 2b are pre-registered. The stage 1 and 2a jobs are queued.
-Stage 2b runs once stage 2a's lifetimes are published. No model results yet.
+Status (2026-11-19): first graded result (amendment 0.4, below). Stages 1, 2a and 2b are
+pre-registered; their jobs are queued. No model results from them yet.
+
+**Amendment 0.4 (graded, pre-registered blind test).** Sergeev's model of a direct route from a
+metal's electrons into the substrate's phonons uses only bulk properties of the metal and grows in
+proportion to T. Even in its smallest normalisation it requires Al interfaces to gain at least 35 %
+(400 -> 600 K) and 29 % (300 -> 480 K) in conductance on any substrate. Measured, the same Al gains 5.5 % on a
+rough Si interface (Li et al.'s Sample 2) and 3 % on epitaxial sapphire (Cheng et al.). The model is
+excluded at both (D1, D3), in all four normalisations, and the verdicts survive the full reading
+error. A T-linear channel of the size De San Feliciano et al. inferred (107 MW m^-2 K^-1 at 300 K)
+survives the pre-registered margin; we had expected it to fail (D2). Exploratory: at central
+readings, an interface-independent T-linear channel is at most 44.5 MW m^-2 K^-1 at 300 K. Take that
+much out of the sharp Al/Si sample and its phonon side still rises 65 % from 400 to 700 K. So the
+rise Li et al. measured needs a mechanism that depends on the interface itself.
 
 Amendment 0.3.1 records the measured inputs and fixes a solver error before any model output
 existed. With the electron-phonon resistance in series, the fitted rise is not monotonic in the
@@ -61,17 +77,9 @@ decisive. Li et al.'s own elastic (DMM) curve, put in series with this G_ep, mis
 the measured G at 700 K for both pairs.
 
 Amendment 0.3.3 adds a direct route from the metal's electrons into the substrate's phonons, in
-parallel with the usual path. Two findings, from the data and bulk inputs only. (1) Sergeev's model,
-the only no-fit theory of that route, depends only on the metal and grows in proportion to T. In the
-normalisation printed in the literature it overshoots the measured Al/Si conductance by 18-49 % once
-the ab initio phonon side is included. With the DFT electron-phonon coupling it is 10 % high at
-600-700 K, which is tension, not exclusion. (2) A T-linear direct channel of the size recently inferred
-from first principles (107 MW m^-2 K^-1 at 300 K, arXiv:2510.27499) leaves a phonon side that is
-flat within +-5 % from 300 to 600 K. So Li et al.'s high-temperature rise does not require inelastic
-phonons, and the two explanations are degenerate on metal/semiconductor data. A blind test is
-pre-registered: does the same Al show the rise on a rougher Si interface (Li et al.'s Sample 2)
-and on sapphire? The stage 3 model will be graded first on non-metal pairs, where no electron route
-exists.
+parallel with the usual path. It also found that a T-linear direct channel of published size makes
+Li et al.'s data degenerate between that route and inelastic phonons, and it pre-registered the
+blind test that amendment 0.4 grades.
 
 Stage 2a tests a scaling argument (PLAN-amendment-0.2.md, section 2). For semi-infinite solids
 and an elastic interface, multiplying every bulk scattering rate by the same factor leaves the
@@ -79,6 +87,6 @@ interface conductance unchanged. In the classical limit three-phonon rates all g
 to T, so bulk anharmonic thermalization next to the interface cannot by itself produce the linear
 rise of G with T measured at Al/GaN. If the job confirms this for real materials, a transferable
 model needs an inelastic channel at the interface itself (as in Duda, Norris and Hopkins 2011, and
-stage 2b), or the direct electron route of amendment 0.3.3.
+stage 2b).
 
 Licence: Apache-2.0 (code), CC BY 4.0 (text). Contact: MV2, Munim, Inc., mv2@munimtech.com.
