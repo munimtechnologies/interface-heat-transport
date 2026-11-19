@@ -1,0 +1,40 @@
+{
+ "about": "Measured thermal boundary conductance G (MW m^-2 K^-1) at three non-metal interfaces, read off published figures by MV2's hands on 2026-11-19, blind to every model result of this study (stages 1, 2a and 2b had produced none). Made with AI agents working in MV2's name. CC BY 4.0.",
+ "zno_gan": {
+  "source": "Gaskins et al., 'Thermal boundary conductance across epitaxial ZnO/GaN interfaces: Assessment of phonon gas models and atomistic Green's function approaches for predicting interfacial phonon transport', arXiv:1710.09525",
+  "measured_range_K": [77, 500],
+  "G": {"100": 201, "200": 366, "300": 491, "400": 520, "500": 502},
+  "rt_value_abstract": "490 [+150, -110] MW m^-2 K^-1",
+  "reading_uncertainty_rel": 0.04,
+  "model_curves": {
+   "AGF": {"300": 300, "500": 305},
+   "DMM": {"300": 240, "500": 278},
+   "zeta=1 (isotropic)": {"300": 700, "500": 790},
+   "zeta=1 (AGF)": {"300": 1180, "500": 1320}
+  },
+  "model_curve_reading_uncertainty": "+-15 to +-50 MW m^-2 K^-1",
+  "notes": "Values at 100-400 K are approximate readings ('~' in the report); 500 K is the highest measured temperature. The abstract attributes the gap to the harmonic models to 'additional modes', naming inelastic scattering as a likely mechanism."
+ },
+ "gan_aln_ucla": {
+  "source": "'Wafer-scale bonded GaN-AlN with high interface thermal conductance', Appl. Phys. Lett. 125, 032104 (2024) (Yongjie Hu group, UCLA)",
+  "measured_range_K": [80, 300],
+  "G": {"80": 75, "100": 117, "200": 264, "300": 324},
+  "text_values": "77 at 80 K, 320 at 300 K",
+  "reading_uncertainty_abs": 5,
+  "model_curves": {"AGF ('Modeling')": {"300": 346}},
+  "notes": "Highest measured temperature 300 K; no DMM curve shown."
+ },
+ "walwil": {
+  "source": "Walwil et al., 'Thermophysical property measurement of GaN/SiC, GaN/AlN, and AlN/SiC epitaxial wafers using multi-frequency/spot-size time-domain thermoreflectance', J. Appl. Phys. 137, 095105 (open access)",
+  "G": {
+   "GaN/AlN": {"300": 483, "400": 382},
+   "AlN/SiC": {"300": 475, "350": 551},
+   "GaN/SiC": {"300": 307, "350": 373, "400": 408, "450": 447}
+  },
+  "reading_uncertainty_rel": 0.04,
+  "quotes": [
+   "The observed increase in the TBC with temperature is primarily due to the increase in the heat capacity (for a temperature range that is below the Debye temperatures of GaN and SiC). In addition, at higher temperatures, inelastic phonon scattering and the higher population of excited phonon modes contribute to the enhancement in the thermal transport across the interface.",
+   "The measured TBC at the AlN/SiC interface increases with temperature. However, the TBC at the GaN/AlN interface decreases with temperature, which contradicts the predicted behavior for GaN/AlN interfaces."
+  ]
+ }
+}

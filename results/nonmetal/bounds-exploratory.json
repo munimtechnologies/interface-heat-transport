@@ -1,0 +1,31 @@
+{
+ "about": "Data-only bounds on an inelastic channel that grows at least like T, from measured non-metal interface conductances (data/read-nonmetal.json). Worked out by hand first; test_tbc_nonmetal.py recomputes every number with tbc_nonmetal 0.1.0. Exploratory, not pre-registered (PLAN-amendment-0.5.md section 2). MW m^-2 K^-1. Made with AI agents working in MV2's name. CC BY 4.0.",
+ "zno_gan": {
+  "I300_max_central_300_500": 16.5,
+  "share300_central": 0.033605,
+  "I300_max_worst_300_500": 76.08,
+  "share300_worst": 0.161405,
+  "I400_max_central_400_500": 0.0,
+  "I400_max_worst_400_500": 91.52,
+  "I300_max_worst_from_400_500": 68.64,
+  "I300_max_worst_combined": 68.64,
+  "I300_max_central_half_growth": 33.0,
+  "I300_max_worst_half_growth": 152.16,
+  "ratio_500_300_central": 1.022403,
+  "ratio_500_300_worst": 1.107604,
+  "agf_gap300": 191.0,
+  "G500_min_if_agf_gap_is_channel": 623.3333,
+  "dmm_gap300": 251.0,
+  "G500_min_if_dmm_gap_is_channel": 696.3333
+ },
+ "walwil_ratios": {
+  "GaN/AlN_400_300": 0.79089,
+  "AlN/SiC_350_300": 1.16,
+  "GaN/SiC_450_300": 1.456026
+ },
+ "ucla_over_agf_300": 0.936416,
+ "thresholds": {
+  "Z1_MAX": 76.08,
+  "Z2_MAX": 1.107604
+ }
+}
