@@ -1,0 +1,26 @@
+{
+  "what": "Blind reading (AI reading agent, 2026-11-19, report line KHANSI) of the Supplementary Information of Khan, Shi, Feser, Wilson, Appl. Phys. Lett. 125, 041601 (2024), doi 10.1063/5.0220124 (OSTI 2578597), and of Hopkins, Salaway, Stevens, Norris, Int. J. Thermophys. 28, 947 (2007). Not checked by a person.",
+  "made_by": "MV2 of Munim, Inc. (made with AI agents)",
+  "licence": "CC BY 4.0 (our notes; the numbers are the papers')",
+  "khan2024_si": {
+    "substrate_orientations": "not stated (main text and SI)",
+    "sic_polytype": "4H (quoted: '4H-SiC', 'SiC 4H')",
+    "tin_growth": "reactive DC magnetron sputtering in N2/Ar; growth temperature not stated",
+    "tin_thickness_nm": {"C": 46, "SiC": 41, "Si": 41, "Ge": 38, "method": "picosecond acoustics"},
+    "epitaxy": "orientation relation not stated",
+    "oxide_removal": "all substrates HF-dipped about 10 s ('surface oxides were removed by HF dipping')",
+    "models": "Landauer formula (Eq. 1) over the full Brillouin zone with DFPT dispersions (Quantum ESPRESSO, PBE, PAW; 4x4x4 force constants interpolated to 50x50x50) for TiN, diamond and Si only; DMM alpha = I2/(I1+I2) (Reddy, full dispersion); elastic limit alpha = 1 if I1 < I2 else I2/I1; Gmax: alpha = 1",
+    "electron_phonon": "TiN volumetric e-ph coefficient ~1e18 W m^-3 K^-1 (Dal Forno, their ref. 39) times 1-2 Angstrom gives ~0.1 GW m^-2 K^-1, about one tenth of the TiN/Si G; called 'unlikely' to matter",
+    "error_bars": "contour analysis of the RMS fit deviation, electron thermal conductivity +-10 %, phonon part +-50 %; relative error Ge 12->28 %, Si 18->37 %, SiC ~26 %, C 20->23 % (300 K -> 770/996 K)"
+  },
+  "hopkins2007": {
+    "free_copy": true,
+    "reading_uncertainty": "+-3 % in T and in G (log-log axes)",
+    "error_bars": "none plotted; text: '<10% from the mean'",
+    "surface_prep": "sapphire 'factory polished', solvent spin clean, 5 min 400 K bake, 5 min 100 W backsputter",
+    "Al_Al2O3": [[295, 185], [394, 280], [475, 341]],
+    "Pt_Al2O3": [[293, 117], [392, 140], [494, 167]],
+    "units": "T in K, G in MW m^-2 K^-1",
+    "note": "Khan Fig. S25's Pt/Al2O3 comparison cites Hopkins, Norris and Stevens, J. Heat Transfer 130 (2008), not this paper"
+  }
+}
