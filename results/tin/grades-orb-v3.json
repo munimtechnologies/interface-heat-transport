@@ -1,0 +1,33 @@
+{
+ "tool": "hand grading of tbc-tin-v1 stdout with tbc_tin.grade_t's rules (amendment 0.5.7)",
+ "made_by": "MV2 of Munim, Inc. (made with AI agents)",
+ "job": "tbc-tin-v1 (run 20261119T074954Z-science), orb-v3 half complete; MACE-MPA-0 half killed by the 3 GB memory cap while relaxing TiN",
+ "source": "results/tin/orb-v3/stdout-tin.txt (lines starting 'G orb-v3')",
+ "units": "MW m^-2 K^-1",
+ "primary_model": "orb-v3",
+ "kappa300_W_per_mK": {"TiN": 44.6, "C": 780.8, "Si": 61.5, "Ge": 20.5},
+ "model": {
+  "TiN/C": {"300": {"G_bte": 43, "G_inel": 5.7, "G_total": 49, "G_dmm": 264},
+            "900": {"G_bte": 53, "G_inel": 44.1, "G_total": 97, "G_dmm": 362}},
+  "TiN/Si": {"300": {"G_bte": 52, "G_inel": 56.4, "G_total": 109, "G_dmm": 315},
+             "700": {"G_bte": 61, "G_inel": 172.4, "G_total": 234, "G_dmm": 340}},
+  "TiN/Ge": {"300": {"G_bte": 51, "G_inel": 61.8, "G_total": 113, "G_dmm": 272},
+             "700": {"G_bte": 59, "G_inel": 188.2, "G_total": 248, "G_dmm": 288}}
+ },
+ "measured_Khan_2024": {
+  "TiN/C": {"300": 449, "900": 910},
+  "TiN/Si": {"300": 507, "700": 916},
+  "TiN/Ge": {"300": 190, "700": 281}
+ },
+ "grades": {
+  "T0": "INCOMPLETE (all pairs computed at 300 K and T_high; top phonon frequencies and imaginary shares were only to be written to tbt-summary.json, which the killed job never wrote)",
+  "T1": "PASS (elastic rise C 1.233 vs 2.027, Si 1.173 vs 1.807, Ge 1.157 vs 1.479)",
+  "T2": "FAIL (0/3: C -89%/-89%, Si -79%/-74%, Ge -41%/-12%)",
+  "T3": "FAIL (1/3: C 1.980 vs 2.027 within 15%; Si 2.147 vs 1.807 (+19%); Ge 2.195 vs 1.479 (+48%))",
+  "T4": "FAIL (|model - data| vs |DMM - data| at T_high: C 813 vs 548, Si 682 vs 576, Ge 33 vs 7)",
+  "T5": "FAIL (Si 109, C 49, Ge 113; measured order Si > C > Ge)",
+  "T6": "FAIL (Ge/Si 1.037; range 0.25-0.55, measured 0.375)"
+ },
+ "rounding_check": "every grade holds for any values within +-0.5 of the printed integers",
+ "diagnostic_next": "tbc-diag-v1 (tbc_diag.py 0.1.0), grades D0-D4 in PLAN-amendment-0.5.7.md section 4"
+}

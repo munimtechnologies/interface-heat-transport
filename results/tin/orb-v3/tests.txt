@@ -1,0 +1,56 @@
+test_all_pass (test_tbc_tin.TestGrades.test_all_pass) ... ok
+test_fails (test_tbc_tin.TestGrades.test_fails) ... ok
+test_t0_and_missing (test_tbc_tin.TestGrades.test_t0_and_missing) ... ok
+test_hand_numbers (test_tbc_tin.TestNumbers.test_hand_numbers) ... ok
+test_results_file_matches (test_tbc_tin.TestNumbers.test_results_file_matches) ... /work/test_tbc_tin.py:97: ResourceWarning: unclosed file <_io.TextIOWrapper name='/work/results/tin/bounds-0.5.2.json' mode='r' encoding='UTF-8'>
+  r = json.load(open(os.path.join(HERE, "results", "tin", "bounds-0.5.2.json")))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_worst_reading_floors_stay_positive (test_tbc_tin.TestNumbers.test_worst_reading_floors_stay_positive) ... ok
+test_cap (test_tbc_tin.TestPieces.test_cap) ... ok
+test_dressed_gray (test_tbc_tin.TestPieces.test_dressed_gray) ... ok
+test_floors (test_tbc_tin.TestPieces.test_floors) ... ok
+test_interp (test_tbc_tin.TestPieces.test_interp) ... ok
+test_t_eff_001 (test_tbc_tin.TestPieces.test_t_eff_001) ... ok
+test_constants_match_data_file (test_tbc_tin.TestReading.test_constants_match_data_file) ... /work/test_tbc_tin.py:16: ResourceWarning: unclosed file <_io.TextIOWrapper name='/work/data/read-hight.json' mode='r' encoding='UTF-8'>
+  d = json.load(open(os.path.join(HERE, "data", "read-hight.json")))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_dmm_alpha_detailed_balance (test_tbc_bte.TestBTE.test_dmm_alpha_detailed_balance) ... ok
+test_equal_lengths_reduce_to_gray (test_tbc_bte.TestBTE.test_equal_lengths_reduce_to_gray) ... ok
+test_gray_equals_simons (test_tbc_bte.TestBTE.test_gray_equals_simons) ... ok
+test_grid_convergence (test_tbc_bte.TestBTE.test_grid_convergence) ... ok
+test_kappa_matches_lengths (test_tbc_bte.TestBTE.test_kappa_matches_lengths) ... ok
+test_lengths_from_kappa_fill (test_tbc_bte.TestBTE.test_lengths_from_kappa_fill) ... ok
+test_non_gray_differs_from_gray (test_tbc_bte.TestBTE.test_non_gray_differs_from_gray) ... ok
+test_rebin (test_tbc_bte.TestBTE.test_rebin) ... ok
+test_scale_invariance (test_tbc_bte.TestBTE.test_scale_invariance) ... ok
+test_swap_symmetry (test_tbc_bte.TestBTE.test_swap_symmetry) ... ok
+test_classical_linear_in_T (test_tbc_inel.TestInel.test_classical_linear_in_T) ... ok
+test_dos_normalized (test_tbc_inel.TestInel.test_dos_normalized) ... ok
+test_ep_pair (test_tbc_inel.TestInel.test_ep_pair) ... ok
+test_heat_capacity_limits (test_tbc_inel.TestInel.test_heat_capacity_limits) ... ok
+test_identical_sides_half (test_tbc_inel.TestInel.test_identical_sides_half) ... ok
+test_magnitude_identical_sides (test_tbc_inel.TestInel.test_magnitude_identical_sides) ... ok
+test_mismatch_suppresses_cross (test_tbc_inel.TestInel.test_mismatch_suppresses_cross) ... ok
+test_quantum_below_classical (test_tbc_inel.TestInel.test_quantum_below_classical) ... ok
+test_single_frequency_no_phase_space (test_tbc_inel.TestInel.test_single_frequency_no_phase_space) ... ok
+test_solve_scale (test_tbc_inel.TestInel.test_solve_scale) ... ok
+test_solve_scale_series_peak (test_tbc_inel.TestInel.test_solve_scale_series_peak) ... ok
+test_solve_scale_unreachable (test_tbc_inel.TestInel.test_solve_scale_unreachable) ... ok
+test_swap_symmetry (test_tbc_inel.TestInel.test_swap_symmetry) ... ok
+test_t_eff (test_tbc_inel.TestInel.test_t_eff) ... ok
+test_zero_rates_zero_G (test_tbc_inel.TestInel.test_zero_rates_zero_G) ... ok
+test_al_si_debye_magnitude (test_tbc_transport.TestTransport.test_al_si_debye_magnitude) ... ok
+test_amm (test_tbc_transport.TestTransport.test_amm) ... ok
+test_debye_radiation_classical_limit (test_tbc_transport.TestTransport.test_debye_radiation_classical_limit) ... ok
+test_dmm_identical_and_detailed_balance (test_tbc_transport.TestTransport.test_dmm_identical_and_detailed_balance) ... ok
+test_flux_spectrum_isotropic_vs_oriented (test_tbc_transport.TestTransport.test_flux_spectrum_isotropic_vs_oriented) ... ok
+test_heat_capacity_limits (test_tbc_transport.TestTransport.test_heat_capacity_limits) ... ok
+test_series_and_ep (test_tbc_transport.TestTransport.test_series_and_ep) ... ok
+test_simons (test_tbc_transport.TestTransport.test_simons) ... ok
+
+----------------------------------------------------------------------
+Ran 45 tests in 6.134s
+
+OK
