@@ -1,0 +1,6 @@
+VERSION = "mv2 anh-pairs 0.1.0"
+VERSION = "mv2 run-tbc-anh 0.1.0"
+VERSION = "mv2 tbc-anh 0.1.0"
+VERSION = "mv2 tbc-bte 0.1.0"
+VERSION = "mv2 tbc-transport 0.1.0"
+numpy   2.5.5

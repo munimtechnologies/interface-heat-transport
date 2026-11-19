@@ -1,0 +1,9 @@
+test_scale_side_one (q1_scaling_check.TestOneSideScaling.test_scale_side_one) ... ok
+test_scale_side_two (q1_scaling_check.TestOneSideScaling.test_scale_side_two) ... ok
+test_shape_matters (q1_scaling_check.TestOneSideScaling.test_shape_matters) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 7.064s
+
+OK
+Q1_EXIT=0

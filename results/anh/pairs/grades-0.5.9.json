@@ -1,0 +1,22 @@
+{
+  "amendment": "0.5.9",
+  "job": "tbc-anhpairs-v1",
+  "potential": "orb-v3",
+  "graded_by": "hand, from run.txt and q1.txt (AI agents working in MV2's name)",
+  "date": "2026-11-19",
+  "grades": {
+    "A0": {"grade": "PASS", "value": "per-bin sums equal phono3py to printed precision"},
+    "A1": {"grade": "FAIL", "prior": 0.60, "value": {"Si": 62, "C": 888, "GaN": 141, "AlN": 169}},
+    "Q1": {"grade": "PASS", "prior": 0.90, "value": "3 of 3 unittest checks ok"},
+    "S2": {"grade": "FAIL", "prior": 0.85, "threshold": "G_BTE(700)/G_BTE(400) < 1.10 both", "value": {"Al/Si": 1.016, "Al/GaN": 1.143}},
+    "S3": {"grade": "PASS", "prior": 0.65, "value": {"dmm": 456, "bte": 648, "simons": 710}},
+    "S5": {"grade": "FAIL", "prior": 0.70, "threshold": "isotope effect < 5 %", "value": {"Al/Si": 0.997, "Al/GaN": 1.218}},
+    "S6": {"grade": "UNDETERMINED", "prior": 0.70, "value": "one potential; tbc-anh-v2 queued"}
+  },
+  "s2_share_of_measured_rise_400_700K_log": {"Al/Si": {"model": 1.016, "measured": 1.325, "share": 0.06}, "Al/GaN": {"model": 1.143, "measured": 1.264, "share": 0.57}},
+  "info_300K_oriented_MW_m2K": {
+    "Al/Si": {"dmm": 456, "bte": 648, "with_Al_eph_series": 422, "measured": 379},
+    "Al/GaN": {"dmm": 578, "bte": 522, "with_Al_eph_series": 365, "measured": 423},
+    "AlN/GaN": {"dmm": 482, "bte": 304, "measured_UCLA": 324, "measured_Walwil": 483, "bte_100K": 103, "measured_UCLA_100K": 117}
+  }
+}
