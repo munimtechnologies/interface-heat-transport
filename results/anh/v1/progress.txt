@@ -1,0 +1,17 @@
+mv2 run-tbc-anh 0.1.0 | mv2 tbc-bte 0.1.0 | mv2 tbc-anh 0.1.0 | mv2 tbc-transport 0.1.0 | mv2 tbc-phonons 0.1.0
+  Al: relaxed (conv=True) a,b,c=['4.0245', '4.0245', '4.0245']; fc3 supercells 43, fc2 supercells 1
+orb-v3 Al: kappa300 iso bins 1.5 (3ph only 1.5) phono3py 1.5 W/mK; 222.0 s
+  Si: relaxed (conv=True) a,b,c=['5.4608', '5.4608', '5.4608']; fc3 supercells 111, fc2 supercells 1
+orb-v3 Si: kappa300 iso bins 61.5 (3ph only 66.1) phono3py 61.5 W/mK; 134.8 s
+  GaN: relaxed (conv=True) a,b,c=['3.2180', '3.2180', '5.2454']; fc3 supercells 466, fc2 supercells 6
+orb-v3 GaN: kappa300 iso bins 141.1 (3ph only 220.1) phono3py 141.1, z bins 144.7 (3ph only 212.2) phono3py 144.7 W/mK; 789.3 s
+  AlN: relaxed (conv=True) a,b,c=['3.1320', '3.1320', '5.0086']; fc3 supercells 466, fc2 supercells 6
+orb-v3 AlN: kappa300 iso bins 169.3 (3ph only 169.5) phono3py 169.3, z bins 171.7 (3ph only 171.9) phono3py 171.7 W/mK; 1090.8 s
+  C: relaxed (conv=True) a,b,c=['3.5721', '3.5721', '3.5721']; fc3 supercells 111, fc2 supercells 1
+orb-v3 C: kappa300 iso bins 888.4 (3ph only 1053.1) phono3py 888.4 W/mK; 277.9 s
+GRID orb-v3 Al/Si 300 K: G(n=400) 648.33, G(n=200) 648.35 MW/m2K
+  Al: relaxed (conv=True) a,b,c=['4.0387', '4.0387', '4.0387']; fc3 supercells 43, fc2 supercells 1
+mace-mpa-0 Al: kappa300 iso bins 15.6 (3ph only 15.6) phono3py 15.6 W/mK; 165.4 s
+  Si: relaxed (conv=True) a,b,c=['5.4674', '5.4674', '5.4674']; fc3 supercells 111, fc2 supercells 1
+mace-mpa-0 Si: kappa300 iso bins 56.8 (3ph only 59.3) phono3py 56.8 W/mK; 122.3 s
+  GaN: relaxed (conv=True) a,b,c=['3.2047', '3.2047', '5.2503']; fc3 supercells 466, fc2 supercells 6
