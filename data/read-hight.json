@@ -1,0 +1,33 @@
+{
+ "what": "Blind figure readings (made by an AI reading agent working for MV2 of Munim, Inc., without sight of any of MV2's files or model output), 2026-11-19. Units MW m^-2 K^-1 and K.",
+ "licence": "CC BY 4.0 (these readings); the papers keep their own copyright",
+ "khan2024": {
+  "citation": "S. Khan, X. Shi, J. Feser, R. Wilson, 'Thermal conductance of interfaces between titanium nitride and group IV semiconductors at high temperatures', Appl. Phys. Lett. 125 (2024), doi 10.1063/5.0220124; free copy OSTI 2578597",
+  "method": "TDTR, about 120-1000 K",
+  "G_at": {
+   "TiN/C": {"300": 449, "400": 572, "500": 662, "600": 740, "700": 814, "800": 870, "900": 910, "1000": null},
+   "TiN/SiC": {"300": 748, "400": 842, "500": 900, "600": 920, "700": 968, "800": null, "900": null, "1000": null},
+   "TiN/Si": {"300": 507, "400": 633, "500": 736, "600": 870, "700": 916, "800": null, "900": null, "1000": null},
+   "TiN/Ge": {"300": 190, "400": 228, "500": 244, "600": 263, "700": 281, "800": null, "900": null, "1000": null}
+  },
+  "G_at_note": "best reading at each 100 K step, linear interpolation between measured points; null = not measured",
+  "last_point": {"TiN/C": [996, 948], "TiN/SiC": [771, 999], "TiN/Si": [771, 942], "TiN/Ge": [771, 299]},
+  "curves_300_1000": {
+   "TiN/C": {"elastic_limit": [364, 505], "DMM": [259, 352], "R_TiN": [1290, 1510], "R_other": [3200, 8200]},
+   "TiN/Si": {"elastic_limit": [411, 438], "DMM": [291, 311], "R_TiN": [1280, 1500], "R_other": [1065, 1230]}
+  },
+  "curves_note": "Legend names: 'Elastic Limit', 'DMM', 'inelastic limit (= TiN Gmax)' and 'Diamond Gmax' (diamond panel); 'Elastic Limit', 'DMM', 'inelastic limit (= Si Gmax)' and 'TiN Gmax' (Si panel). R_TiN and R_other are the two sides' maximum (radiation-limit) conductances. No AGF or radiation-limit curve beyond these is shown. Values at 300 K and at 1000 K.",
+  "high_T_wording": "the interface conductance increases monotonically without stagnating at higher temperatures",
+  "reading_uncertainty": "+-5-15 on clear markers (+-1-2 %); +-20-30 on the partly hidden TiN/Si points 480-771 K; curves +-2-3 %",
+  "not_read": "TiN thickness, substrate orientations, SiC polytype and growth details are in the Supplementary Information, which was not opened"
+ },
+ "koh2020": {
+  "citation": "Y. R. Koh et al., 'Thermal boundary conductance across epitaxial metal/sapphire interfaces', Phys. Rev. B 102, 205304 (2020); free copy NSF PAR 10231106",
+  "G_300_400_500": {"Al/sapphire": [315, 338, 325], "Co/sapphire": [370, 405, 460], "Ru/sapphire": [351, 340, 361]},
+  "G_note": "the last value is at the highest measured temperature: 498 K (Al), 497 K (Co), 498 K (Ru)",
+  "nel_dmm_300_500": {"Al/sapphire": [334, 351], "Co/sapphire": [372, 390], "Ru/sapphire": [296, 307]},
+  "other_curves_300_500": {"QE Landauer Al": [326, 346], "AGF Al": [333, 347], "QE Landauer Ru": [249, 247], "AGF Ru": [246, 252]},
+  "curves_note": "'modal non-equilibrium Landauer' with DMM transmission (Shi et al.'s method); conventional DMM not shown for these interfaces",
+  "reading_uncertainty": "+-1 (vector figure data)"
+ }
+}

@@ -7,8 +7,8 @@ Solid Interfaces"). Made with AI agents working in MV2's name; not yet checked b
 thermal-transport specialist.
 
 - `PLAN.md`: the question, the benchmarks and the expectations written before each job runs.
-  Dated amendments (`PLAN-amendment-0.2.md`, `0.3`, `0.3.1`, `0.3.2`, `0.3.3`, `0.4`, `0.5`, `0.5.1`, ...)
-  add stages and grades without changing earlier text.
+  Dated amendments (`PLAN-amendment-0.2.md`, `0.3`, `0.3.1`, `0.3.2`, `0.3.3`, `0.4`, `0.5`, `0.5.1`,
+  `0.5.2`, ...) add stages and grades without changing earlier text.
 - `tbc_transport.py`: elastic baselines (full-band and Debye DMM, Debye AMM, gray Simons/Zeng-Chen
   correction, phonon radiation limit, electron-phonon series resistance). numpy only.
 - `tbc_phonons.py`: bulk phonons from open universal potentials (MACE-MPA-0, MIT; orb-v3, Apache-2.0)
@@ -49,6 +49,10 @@ thermal-transport specialist.
   DMM conductance (1/G_d = 1/G_0 - 1/(2R_1) - 1/(2R_2)), the corrected bound for an elastic part that
   falls, and the supplementary grades Z1g, Z6, Z7 of stage 3a (`results/nonmetal/bounds-0.5.1.json`).
   Pure Python.
+- `tbc_tin.py`, `run_tbc_tin.py`: stage 3b (PLAN-amendment-0.5.2.md), TiN on diamond, Si and Ge up
+  to 1000 K (Khan et al., APL 2024). `tbc_tin` holds the reading, the exploratory elastic-growth
+  numbers (`results/tin/bounds-0.5.2.json`), the registration of TiN, Ge and (001) layers in the
+  stage 2 tables, and the pre-registered grades T0-T6. `run_tbc_tin` is the job.
 - `data/meas-li2022.json`: the measured Al/Si and Al/GaN conductances (80-700 K) of Li et al.,
   Nat. Commun. 13, 4901 (2022), read off their Fig. 1 without sight of any model output.
   `data/read-d1d3.json`: Li et al.'s rough Al/Si Sample 2 and Cheng et al.'s epitaxial
@@ -56,12 +60,27 @@ thermal-transport specialist.
   against. `data/read-nonmetal.json`: ZnO/GaN (Gaskins et al., arXiv:1710.09525), bonded GaN/AlN
   (UCLA, APL 2024) and Walwil et al.'s GaN/AlN, AlN/SiC and GaN/SiC (JAP 2025), read blind to every
   model result. `data/read-gaskins2018.json`: the published ZnO/GaN figure (Nano Lett. 2018) with
-  its error bars and how they were obtained.
+  its error bars and how they were obtained. `data/read-hight.json`: TiN on diamond, SiC, Si and Ge,
+  120-1000 K (Khan, Shi, Feser and Wilson, APL 125, 041601, 2024) and Al, Co and Ru on sapphire
+  (Koh et al., PRB 102, 205304, 2020), with the model curves drawn in both papers.
 - `readings/`: notes from the papers this work builds on.
-- Unit tests: `python -m unittest -v test_tbc_transport test_tbc_bte test_tbc_inel test_tbc_gep test_tbc_direct test_tbc_grade_d test_tbc_nonmetal test_tbc_dressed`.
+- Unit tests: `python -m unittest -v test_tbc_transport test_tbc_bte test_tbc_inel test_tbc_gep test_tbc_direct test_tbc_grade_d test_tbc_nonmetal test_tbc_dressed test_tbc_tin`.
 
-Status (2026-11-19): one graded result so far (amendment 0.4, below). Stages 1, 2a, 2b and 3a are
-pre-registered and their jobs are queued, so there are no model results from them yet.
+Status (2026-11-19): one graded result so far (amendment 0.4, below). Stages 1, 2a, 2b, 3a and 3b
+are pre-registered and their jobs are queued, so there are no model results from them yet.
+
+**Amendment 0.5.2 (stage 3b pre-registered; exploratory numbers).** Khan et al. measured TiN on
+diamond, Si and Ge to about 1000 K. The conductance "increases monotonically without stagnating"
+(TiN/diamond 449 at 300 K, 948 at 996 K). They cite TiN/diamond lying about 25 % above the elastic
+limit at 300 K as evidence of inelastic transport. Put their own elastic-limit and radiation-limit
+curves into the gray non-equilibrium ("dressed") formula, and the 300 K value is reproduced (454
+against 449 measured), so the room-temperature excess cannot decide the question. The rise can: the
+dressed elastic limit grows 1.39-fold to 1000 K where the data grow 2.11-fold, leaving at least 325
+MW m^-2 K^-1 (34 %) at 996 K to something non-elastic. A model-free cap on a conventional elastic
+conductance (heat capacity of the highest crossing mode) still leaves 141, 173 and 79 at the highest
+temperatures of TiN/diamond, TiN/Si and TiN/Ge. Job `tbc-tin-v1` now asks whether our no-fit model
+(dressed elastic BTE plus a three-phonon channel from bulk rates) gets the factor-two rise right (T3,
+prior 30 %).
 
 **Amendment 0.5.1 (correction).** The ZnO/GaN bound of amendment 0.5 does not hold up. The
 published error bars (95 % confidence contours of a separate fit at each temperature) allow a

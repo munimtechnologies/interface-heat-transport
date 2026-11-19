@@ -1,0 +1,33 @@
+{
+ "tool": "mv2 tbc-tin 0.1.0, numbers() (worked by hand, recomputed by test_tbc_tin.py)",
+ "made_by": "MV2 of Munim, Inc. (made with AI agents)",
+ "data": "data/read-hight.json (Khan et al. 2024; Koh et al. 2020)",
+ "units": "MW m^-2 K^-1 (ratios dimensionless)",
+ "numbers": {
+  "TiN/C dressed elastic_limit 300": 453.843,
+  "TiN/C dressed elastic_limit 1000": 629.685,
+  "TiN/C dressed DMM 300": 301.463,
+  "TiN/C dressed DMM 1000": 408.362,
+  "TiN/Si dressed elastic_limit 300": 635.736,
+  "TiN/Si dressed elastic_limit 1000": 647.976,
+  "TiN/Si dressed DMM 300": 388.151,
+  "TiN/Si dressed DMM 1000": 403.943,
+  "TiN/C kappa dressed EL 300-1000": 1.387452,
+  "TiN/Si kappa dressed EL 300-1000": 1.019253,
+  "TiN/C excess over dressed EL at 996": 318.315,
+  "TiN/C floor nonelastic 996 (dressed EL trend)": 325.034,
+  "TiN/Si floor nonelastic 771 (dressed EL trend, 300-1000 ratio)": 425.239,
+  "TiN/C linear channel floor I300 (dressed EL trend)": 168.19,
+  "TiN/C kappa conv max (TiN 18.0 THz) 300-996": 1.797477,
+  "TiN/C floor nonelastic 996 (model-free conventional)": 140.933,
+  "TiN/Si kappa conv max (Si 15.6 THz) 300-771": 1.516615,
+  "TiN/Si floor nonelastic 771 (model-free conventional)": 173.076,
+  "TiN/Ge kappa conv max (Ge 9.1 THz) 300-771": 1.158254,
+  "TiN/Ge floor nonelastic 771 (model-free conventional)": 78.932,
+  "TiN/C measured ratio 900/300": 2.026726,
+  "TiN/Si measured ratio 700/300": 1.806706,
+  "TiN/Ge measured ratio 700/300": 1.478947
+ },
+ "worst_reading_model_free_floors": {"TiN/C 996": 98.96, "TiN/Si 771": 97.58, "TiN/Ge 771": 46.56},
+ "status": "exploratory (not pre-registered); the graded test of this question is stage 3b, job tbc-tin-v1"
+}
