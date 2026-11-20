@@ -1,0 +1,25 @@
+{
+ "job": "tbc-fill-v1",
+ "rules": "PLAN-amendment-0.5.8.md sec. 4 (written before the job ran; thresholds unchanged)",
+ "graded": "2026-11-20",
+ "graded_by": "AI agents working in MV2's name; not checked by a thermal-transport specialist",
+ "source_files": ["results/tin/fill/run.txt", "results/tin/fill/fill-summary.json"],
+ "units": "G in MW m^-2 K^-1, kappa in W m^-1 K^-1",
+ "grades": {
+  "F0": {"grade": "PASS", "prior": 0.95, "result": "base reproduces tbc-diag-v1 in all 6 rows (43.3, 52.8, 52.3, 61.5, 51.5, 59.3)"},
+  "F1": {"grade": "FAIL", "prior": 0.80, "result": "TiN 300 K filled share 0.663 (>= 0.60 met) but the highest filled bin starts at 3.20 THz (not below 3.0); filled TiN bins at 0.0, 0.2, 0.6-1.4, 2.0-2.4 and 3.2 THz, interleaved with sampled bins at 0.4, 1.6, 1.8 and 2.6-3.0 THz"},
+  "F2": {"grade": "PASS", "prior": 0.65, "result": "G_merge / G_base 4.46, 4.46, 6.06, 5.81, 3.29, 3.17 (all >= 2)"},
+  "F3": {"grade": "FAIL", "prior": 0.45, "result": "G_merge x 1.6 >= DMM_merge in 5 of 6 rows; TiN/Ge 300 K misses: 169.6 x 1.6 = 271.4 against 272.6 (0.4 %)"},
+  "F4": {"grade": "FAIL", "prior": 0.85, "result": "TiN model kappa after merging: TiN/C rows 44.6 and 16.2 (exact); TiN/Si 50.4 vs 44.6 and 22.9 vs 20.6; TiN/Ge 54.2 vs 44.6 and 24.4 vs 20.6 (merging stops at 1.0 and 0.6 THz, so interior filled bins remain)"}
+ },
+ "rows": [
+  {"pair": "TiN/C", "T": 300, "base": 43.3, "merge": 192.9, "dmm_merge": 266.4, "nofill": 56.6, "merge_over_dmm": 0.72, "info_merge_plus_inel": 199, "measured_Khan2024": 449},
+  {"pair": "TiN/C", "T": 900, "base": 52.8, "merge": 235.8, "dmm_merge": 363.9, "nofill": 80.8, "merge_over_dmm": 0.65, "info_merge_plus_inel": 280, "measured_Khan2024": 910},
+  {"pair": "TiN/Si", "T": 300, "base": 52.3, "merge": 317.0, "dmm_merge": 315.5, "nofill": 85.5, "merge_over_dmm": 1.00, "info_merge_plus_inel": 373, "measured_Khan2024": 507},
+  {"pair": "TiN/Si", "T": 700, "base": 61.5, "merge": 357.4, "dmm_merge": 340.3, "nofill": 113.4, "merge_over_dmm": 1.05, "info_merge_plus_inel": 530, "measured_Khan2024": 916},
+  {"pair": "TiN/Ge", "T": 300, "base": 51.5, "merge": 169.6, "dmm_merge": 272.6, "nofill": 70.2, "merge_over_dmm": 0.62, "info_merge_plus_inel": 231, "measured_Khan2024": 190},
+  {"pair": "TiN/Ge", "T": 700, "base": 59.3, "merge": 188.0, "dmm_merge": 288.3, "nofill": 89.4, "merge_over_dmm": 0.65, "info_merge_plus_inel": 376, "measured_Khan2024": 281}
+ ],
+ "headline": "The 5-6x deficit of TiN interfaces below their own DMM (amendment 0.5.7) was mostly an artefact of how unsampled frequency bins were filled: conserving the bulk conductivity in the low-frequency bands raises G 3.2-6.1x. The filled bins are not only the low-frequency gap (F1 failed by one bin at 3.2 THz), and where merging stops early they still inflate TiN's conductivity by 13-22 % (F4 failed), so merging is not yet the default rule.",
+ "reading_rule_applied": "0.5.8 sec. 4: 'F2 PASS, F1 FAIL: merging helps but the filled bins are not only the low-frequency gap; the printed bin table decides where they are before any rule is frozen.' and 'F4 FAIL: interior filled bins still inflate the model; fix those before using merge as the default.'"
+}

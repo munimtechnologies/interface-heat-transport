@@ -1,0 +1,141 @@
+mv2 tbc-fill 0.1.0 | mv2 tbc-anh 0.1.0 | mv2 tbc-bte 0.1.0
+MAT TiN: vcell/(a^3/4) 1.0000; kappa300 ph3 44.6 W/mK; lifetime-mesh lowest positive freq 0.568 THz
+MAT C: vcell/(a^3/4) 1.0000; kappa300 ph3 780.8 W/mK; lifetime-mesh lowest positive freq 3.705 THz
+MAT Si: vcell/(a^3/4) 1.0000; kappa300 ph3 61.5 W/mK; lifetime-mesh lowest positive freq 0.848 THz
+MAT Ge: vcell/(a^3/4) 1.0000; kappa300 ph3 20.5 W/mK; lifetime-mesh lowest positive freq 0.440 THz
+BINS TiN 300 K: filled 11 at lower edges (THz) 0.0,0.2,0.6,0.8,1.0,1.2,1.4,2.0,2.2,2.4,3.2 | model kappa 132.3 vs bins 44.6 W/mK | filled share 0.663 | sum K 1328 MW/m2K
+BIN TiN   0.0 K    6.1457 kappa    0.0000 l_nm    2363.12 FILLED
+BIN TiN   0.2 K    6.2389 kappa    0.0000 l_nm    2363.12 FILLED
+BIN TiN   0.4 K    1.5920 kappa    7.5239 l_nm    2363.12 
+BIN TiN   0.6 K    4.0185 kappa    0.0000 l_nm    1395.50 FILLED
+BIN TiN   0.8 K    4.4029 kappa    0.0000 l_nm     824.09 FILLED
+BIN TiN   1.0 K    4.7911 kappa    0.0000 l_nm     486.65 FILLED
+BIN TiN   1.2 K    3.0138 kappa    0.0000 l_nm     287.38 FILLED
+BIN TiN   1.4 K    6.4774 kappa    0.0000 l_nm     169.71 FILLED
+BIN TiN   1.6 K    5.2001 kappa    1.0423 l_nm     100.22 
+BIN TiN   1.8 K    5.0301 kappa    0.1186 l_nm      11.79 
+BIN TiN   2.0 K    3.6628 kappa    0.0000 l_nm      14.63 FILLED
+BIN TiN   2.2 K    8.2285 kappa    0.0000 l_nm      18.15 FILLED
+BIN TiN   2.4 K    7.1130 kappa    0.0000 l_nm      22.53 FILLED
+BIN TiN   2.6 K    7.5244 kappa    0.4208 l_nm      27.96 
+BIN TiN   2.8 K    6.2583 kappa    0.5813 l_nm      46.44 
+BIN TiN   3.0 K   10.1626 kappa    2.3109 l_nm     113.70 
+BIN TiN   3.2 K    9.4455 kappa    0.0000 l_nm      73.34 FILLED
+BIN TiN   3.4 K   10.4162 kappa    0.9854 l_nm      47.30 
+BIN TiN   3.6 K   13.0467 kappa    4.4896 l_nm     172.06 
+BIN TiN   3.8 K   12.2689 kappa    0.1190 l_nm       4.85 
+BIN TiN   4.0 K   14.4930 kappa    3.0280 l_nm     104.46 
+BIN TiN   4.2 K   14.3027 kappa    3.1745 l_nm     110.98 
+BIN TiN   4.4 K   19.5978 kappa    1.9491 l_nm      49.73 
+BIN TiN   4.6 K   25.3367 kappa    1.1014 l_nm      21.74 
+BIN TiN   4.8 K   35.3637 kappa    0.1999 l_nm       2.83 
+BIN TiN   5.0 K   45.4113 kappa    2.7549 l_nm      30.33 
+BIN TiN   5.2 K   46.6210 kappa    3.0056 l_nm      32.23 
+BIN TiN   5.4 K   54.1755 kappa    1.3681 l_nm      12.63 
+BIN TiN   5.6 K   54.7141 kappa    1.3826 l_nm      12.63 
+BIN TiN   5.8 K   45.0369 kappa    2.7069 l_nm      30.05 
+BINS C 300 K: filled 28 at lower edges (THz) 1.0,1.6,2.0,2.4,2.8,3.0,3.2,3.4,3.8,4.0,4.4,4.8,5.0,5.2,6.0,6.2,6.6,6.8,7.4,7.6,7.8,8.0,8.2,8.6,9.2,9.6,10.2,10.4 | model kappa 881.5 vs bins 780.8 W/mK | filled share 0.119 | sum K 3191 MW/m2K
+BIN C   0.0 K    0.0000 kappa    0.0000 l_nm       0.00 
+BIN C   0.2 K    0.0000 kappa    0.0000 l_nm       0.00 
+BIN C   0.4 K    0.0000 kappa    0.0000 l_nm       0.00 
+BIN C   0.6 K    0.0000 kappa    0.0000 l_nm       0.00 
+BIN C   0.8 K    0.0000 kappa    0.0000 l_nm       0.00 
+BIN C   1.0 K    0.7872 kappa    0.0000 l_nm     427.89 FILLED
+BIN C   1.2 K    0.0000 kappa    0.0000 l_nm       0.00 
+BIN C   1.4 K    0.0000 kappa    0.0000 l_nm       0.00 
+BIN C   1.6 K    0.5919 kappa    0.0000 l_nm     427.89 FILLED
+BIN C   1.8 K    0.0000 kappa    0.0000 l_nm       0.00 
+BIN C   2.0 K    1.9463 kappa    0.0000 l_nm     427.89 FILLED
+BIN C   2.2 K    0.0000 kappa    0.0000 l_nm       0.00 
+BIN C   2.4 K    1.0493 kappa    0.0000 l_nm     427.89 FILLED
+BIN C   2.6 K    0.0000 kappa    0.0000 l_nm       0.00 
+BIN C   2.8 K    2.6304 kappa    0.0000 l_nm     427.89 FILLED
+BIN C   3.0 K    0.7469 kappa    0.0000 l_nm     427.89 FILLED
+BIN C   3.2 K    0.7923 kappa    0.0000 l_nm     427.89 FILLED
+BIN C   3.4 K    2.7581 kappa    0.0000 l_nm     427.89 FILLED
+BIN C   3.6 K    0.0000 kappa    4.1750 l_nm       0.00 
+BIN C   3.8 K    2.9970 kappa    0.0000 l_nm     427.89 FILLED
+BIN C   4.0 K    3.5794 kappa    0.0000 l_nm     427.89 FILLED
+BIN C   4.2 K    0.0000 kappa    0.0000 l_nm       0.00 
+BIN C   4.4 K    2.3947 kappa    0.0000 l_nm     427.89 FILLED
+BIN C   4.6 K    4.1322 kappa    3.5362 l_nm     427.89 
+BIN C   4.8 K    1.5722 kappa    0.0000 l_nm     482.76 FILLED
+BIN C   5.0 K    5.3698 kappa    0.0000 l_nm     544.67 FILLED
+BIN C   5.2 K    5.5150 kappa    0.0000 l_nm     614.52 FILLED
+BIN C   5.4 K    0.0000 kappa    0.0000 l_nm       0.00 
+BIN C   5.6 K    4.5539 kappa    7.1245 l_nm     782.24 
+BIN C   5.8 K    4.7420 kappa    2.4021 l_nm     253.28 
+BINS Si 300 K: filled 6 at lower edges (THz) 0.2,0.4,0.6,1.0,1.4,15.2 | model kappa 62.9 vs bins 61.5 W/mK | filled share 0.023 | sum K 1045 MW/m2K
+BIN Si   0.0 K    0.0000 kappa    0.0000 l_nm       0.00 
+BIN Si   0.2 K    0.0767 kappa    0.0000 l_nm     123.76 FILLED
+BIN Si   0.4 K    0.3637 kappa    0.0000 l_nm     123.76 FILLED
+BIN Si   0.6 K    0.3803 kappa    0.0000 l_nm     123.76 FILLED
+BIN Si   0.8 K    0.7231 kappa    0.1790 l_nm     123.76 
+BIN Si   1.0 K    1.2578 kappa    0.0000 l_nm     137.45 FILLED
+BIN Si   1.2 K    1.3415 kappa    0.4096 l_nm     152.66 
+BIN Si   1.4 K    2.1763 kappa    0.0000 l_nm     202.69 FILLED
+BIN Si   1.6 K    3.5482 kappa    1.9097 l_nm     269.11 
+BIN Si   1.8 K    2.9187 kappa    0.8876 l_nm     152.05 
+BIN Si   2.0 K    4.8251 kappa    0.5715 l_nm      59.22 
+BIN Si   2.2 K    5.0508 kappa    1.0071 l_nm      99.70 
+BIN Si   2.4 K    6.4828 kappa    1.6262 l_nm     125.43 
+BIN Si   2.6 K    7.9490 kappa    2.1122 l_nm     132.86 
+BIN Si   2.8 K   10.3734 kappa    2.6760 l_nm     128.98 
+BIN Si   3.0 K   11.3071 kappa    3.1268 l_nm     138.27 
+BIN Si   3.2 K   16.4904 kappa    2.8693 l_nm      87.00 
+BIN Si   3.4 K   24.0461 kappa    5.0225 l_nm     104.44 
+BIN Si   3.6 K   27.0247 kappa    1.5417 l_nm      28.52 
+BIN Si   3.8 K   30.1027 kappa    2.1556 l_nm      35.80 
+BIN Si   4.0 K   36.2788 kappa    3.5131 l_nm      48.42 
+BIN Si   4.2 K   43.6402 kappa    2.4953 l_nm      28.59 
+BIN Si   4.4 K   42.7804 kappa    1.9480 l_nm      22.77 
+BIN Si   4.6 K   34.7062 kappa    1.6049 l_nm      23.12 
+BIN Si   4.8 K   33.7179 kappa    4.3507 l_nm      64.52 
+BIN Si   5.0 K   30.3079 kappa    0.7847 l_nm      12.95 
+BIN Si   5.2 K   28.2389 kappa    2.2143 l_nm      39.21 
+BIN Si   5.4 K   27.7928 kappa    1.8323 l_nm      32.96 
+BIN Si   5.6 K   22.5149 kappa    1.4438 l_nm      32.06 
+BIN Si   5.8 K   22.2836 kappa    0.8645 l_nm      19.40 
+BINS Ge 300 K: filled 2 at lower edges (THz) 0.0,0.2 | model kappa 20.6 vs bins 20.5 W/mK | filled share 0.002 | sum K 522 MW/m2K
+BIN Ge   0.0 K    0.0355 kappa    0.0000 l_nm      63.43 FILLED
+BIN Ge   0.2 K    0.2711 kappa    0.0000 l_nm      63.43 FILLED
+BIN Ge   0.4 K    0.7940 kappa    0.1007 l_nm      63.43 
+BIN Ge   0.6 K    1.6999 kappa    0.1897 l_nm      55.80 
+BIN Ge   0.8 K    2.5705 kappa    1.6791 l_nm     326.60 
+BIN Ge   1.0 K    3.5290 kappa    0.5400 l_nm      76.51 
+BIN Ge   1.2 K    5.2844 kappa    1.0030 l_nm      94.90 
+BIN Ge   1.4 K    8.0113 kappa    1.1855 l_nm      73.99 
+BIN Ge   1.6 K   11.1897 kappa    2.3062 l_nm     103.05 
+BIN Ge   1.8 K   23.2093 kappa    2.3520 l_nm      50.67 
+BIN Ge   2.0 K   41.2989 kappa    1.8041 l_nm      21.84 
+BIN Ge   2.2 K   36.2860 kappa    1.2851 l_nm      17.71 
+BIN Ge   2.4 K   30.4533 kappa    1.1935 l_nm      19.60 
+BIN Ge   2.6 K   24.2841 kappa    0.6648 l_nm      13.69 
+BIN Ge   2.8 K   14.9352 kappa    0.7485 l_nm      25.06 
+BIN Ge   3.0 K    4.3292 kappa    0.1422 l_nm      16.43 
+BIN Ge   3.2 K    4.3179 kappa    0.6409 l_nm      74.22 
+BIN Ge   3.4 K    6.7356 kappa    0.4090 l_nm      30.36 
+BIN Ge   3.6 K    6.0785 kappa    0.5155 l_nm      42.41 
+BIN Ge   3.8 K    7.5405 kappa    0.3767 l_nm      24.98 
+BIN Ge   4.0 K    8.8732 kappa    0.2764 l_nm      15.58 
+BIN Ge   4.2 K    9.8464 kappa    0.1666 l_nm       8.46 
+BIN Ge   4.4 K   11.3631 kappa    0.2587 l_nm      11.38 
+BIN Ge   4.6 K   13.2480 kappa    0.2172 l_nm       8.20 
+BIN Ge   4.8 K   15.7104 kappa    0.1144 l_nm       3.64 
+BIN Ge   5.0 K   18.6960 kappa    0.1325 l_nm       3.54 
+BIN Ge   5.2 K   16.8988 kappa    0.0621 l_nm       1.84 
+BIN Ge   5.4 K   11.3985 kappa    0.0547 l_nm       2.40 
+BIN Ge   5.6 K    7.4993 kappa    0.0562 l_nm       3.75 
+BIN Ge   5.8 K    9.1674 kappa    0.0608 l_nm       3.32 
+FILL TiN/C 300 K | merged 0-4.8 THz | G base 43.3 dmm 264.3 | merge 192.9 (n800 192.9) dmm_m 266.4 simons_m 310.5 linbath_m 307.1 uni_m 310.5 | nofill 56.6 | kappa1 base/merge/bins 132.3/44.6/44.6 kappa2 881.5/862.6/780.8 | filled base 11/28 merge 0/17 share_m 0.000/0.095 | info merge+inel 199 vs measured 449 | resid 2.5e-21
+FILL TiN/C 900 K | merged 0-4.8 THz | G base 52.8 dmm 361.8 | merge 235.8 (n800 235.8) dmm_m 363.9 simons_m 421.9 linbath_m 401.9 uni_m 421.9 | nofill 80.8 | kappa1 base/merge/bins 42.7/16.2/16.2 kappa2 379.4/376.4/360.5 | filled base 11/28 merge 0/17 share_m 0.000/0.042 | info merge+inel 280 vs measured 910 | resid 1.1e-21
+FILL TiN/Si 300 K | merged 0-1.0 THz | G base 52.3 dmm 315.3 | merge 317.0 (n800 317.0) dmm_m 315.5 simons_m 432.0 linbath_m 535.4 uni_m 432.0 | nofill 85.5 | kappa1 base/merge/bins 132.3/50.4/44.6 kappa2 62.9/62.6/61.5 | filled base 11/6 merge 7/3 share_m 0.115/0.018 | info merge+inel 373 vs measured 507 | resid 1.4e-21
+FILL TiN/Si 700 K | merged 0-1.0 THz | G base 61.5 dmm 340.2 | merge 357.4 (n800 357.4) dmm_m 340.3 simons_m 454.7 linbath_m 566.3 uni_m 454.7 | nofill 113.4 | kappa1 base/merge/bins 55.0/22.9/20.6 kappa2 27.1/26.9/26.5 | filled base 11/6 merge 7/3 share_m 0.101/0.017 | info merge+inel 530 vs measured 916 | resid 3.2e-21
+FILL TiN/Ge 300 K | merged 0-0.6 THz | G base 51.5 dmm 272.4 | merge 169.6 (n800 169.6) dmm_m 272.6 simons_m 428.4 linbath_m 423.2 uni_m 428.4 | nofill 70.2 | kappa1 base/merge/bins 132.3/54.2/44.6 kappa2 20.6/20.5/20.5 | filled base 11/2 merge 9/0 share_m 0.177/0.000 | info merge+inel 231 vs measured 190 | resid 1.4e-21
+FILL TiN/Ge 700 K | merged 0-0.6 THz | G base 59.3 dmm 288.1 | merge 188.0 (n800 188.0) dmm_m 288.3 simons_m 448.3 linbath_m 445.1 uni_m 448.3 | nofill 89.4 | kappa1 base/merge/bins 55.0/24.4/20.6 kappa2 9.3/9.3/9.3 | filled base 11/2 merge 9/0 share_m 0.157/0.000 | info merge+inel 376 vs measured 281 | resid 2.4e-21
+F0: PASS
+F1: FAIL(TiN 300 K filled share 0.663, highest filled bin starts at 3.20 THz)
+F2: PASS(TiN/C 300 merge/base 4.46, TiN/C 900 merge/base 4.46, TiN/Si 300 merge/base 6.06, TiN/Si 700 merge/base 5.81, TiN/Ge 300 merge/base 3.29, TiN/Ge 700 merge/base 3.17)
+F3: FAIL(TiN/Ge 300)(TiN/C 300 merge/dmm 0.72, TiN/C 900 merge/dmm 0.65, TiN/Si 300 merge/dmm 1.00, TiN/Si 700 merge/dmm 1.05, TiN/Ge 300 merge/dmm 0.62, TiN/Ge 700 merge/dmm 0.65)
+F4: FAIL(TiN/Si 300 50.4 vs 44.6, TiN/Si 700 22.9 vs 20.6, TiN/Ge 300 54.2 vs 44.6, TiN/Ge 700 24.4 vs 20.6)
+FIL: F0 PASS | F1 FAIL | F2 PASS | F3 FAIL | F4 FAIL | TiN300 share 0.66 | TiN/C 300 base/merge/dmm_m/nofill 43/193/266/57 ; TiN/C 900 base/merge/dmm_m/nofill 53/236/364/81 ; TiN/Si 300 base/merge/dmm_m/nofill 52/317/315/85 ; TiN/Si 700 base/merge/dmm_m/nofill 61/357/340/113 ; TiN/Ge 300 base/merge/dmm_m/nofill 51/170/273/70 ; TiN/Ge 700 base/merge/dmm_m/nofill 59/188/288/89
