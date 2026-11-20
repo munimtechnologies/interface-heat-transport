@@ -1,0 +1,15 @@
+test_all_pass (test_tbc_diag.TestGrade.test_all_pass) ... ok
+test_d0_fail_and_d1_fail (test_tbc_diag.TestGrade.test_d0_fail_and_d1_fail) ... ok
+test_d3_fail (test_tbc_diag.TestGrade.test_d3_fail) ... ok
+test_missing (test_tbc_diag.TestGrade.test_missing) ... ok
+test_gray (test_tbc_diag.TestGrayLimit.test_gray) ... ok
+test_fcc_volume (test_tbc_diag.TestHelpers.test_fcc_volume) ... ok
+test_mean_length (test_tbc_diag.TestHelpers.test_mean_length) ... ok
+test_shared_share (test_tbc_diag.TestHelpers.test_shared_share) ... ok
+test_uniform_lengths (test_tbc_diag.TestHelpers.test_uniform_lengths) ... ok
+test_within (test_tbc_diag.TestHelpers.test_within) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 2.958s
+
+OK

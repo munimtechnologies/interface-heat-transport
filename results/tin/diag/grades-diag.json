@@ -1,0 +1,27 @@
+{
+  "amendment": "0.5.8",
+  "job": "tbc-diag-v1",
+  "pre_registered_in": "PLAN-amendment-0.5.7.md section 4",
+  "grades": {
+    "D0": "PASS",
+    "D1": "PASS",
+    "D2": "PASS",
+    "D3": "PASS (uni/dmm 1.16, 1.16, 1.37, 1.34, 1.57, 1.55)",
+    "D4": "INFO: TiN side in every row (uni1 share 0.96-1.04 for C and Si, 0.62-0.63 for Ge; uni2 share -0.01 to 0.04)"
+  },
+  "rows_MW_per_m2K": {
+    "TiN/C 300": {"base": 43.3, "dmm": 264.3, "uni": 307.7, "uni1": 331.0, "uni2": 42.8},
+    "TiN/C 900": {"base": 52.8, "dmm": 361.8, "uni": 419.1, "uni1": 431.8, "uni2": 52.6},
+    "TiN/Si 300": {"base": 52.3, "dmm": 315.3, "uni": 431.8, "uni1": 398.5, "uni2": 52.1},
+    "TiN/Si 700": {"base": 61.5, "dmm": 340.2, "uni": 454.5, "uni1": 424.8, "uni2": 61.2},
+    "TiN/Ge 300": {"base": 51.5, "dmm": 272.4, "uni": 427.9, "uni1": 194.0, "uni2": 55.0},
+    "TiN/Ge 700": {"base": 59.3, "dmm": 288.1, "uni": 447.9, "uni1": 209.3, "uni2": 64.2}
+  },
+  "post_hoc_not_a_test": {
+    "TiN_model_kappa_300K_W_per_mK": 132.3,
+    "TiN_binned_phono3py_kappa_300K_W_per_mK": 44.6,
+    "TiN_filled_bins": 11,
+    "minimum_filled_share": 0.663,
+    "reading": "D-reading suspended until tbc-fill-v1 (F0-F4, amendment 0.5.8 section 4) is graded"
+  }
+}

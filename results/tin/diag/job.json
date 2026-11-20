@@ -1,0 +1,59 @@
+{
+ "source": "E:\\MV2-Pursuit\\work\\20261119T200644Z-science\\compete\\tbc-diag\\job.json",
+ "normalized": {
+  "id": "1bf46d3030de",
+  "name": "tbc-diag-v1",
+  "job_path": "E:\\MV2-Pursuit\\work\\20261119T200644Z-science\\compete\\tbc-diag\\job.json",
+  "run": "20261119T200644Z-science",
+  "field": "science",
+  "kind": "compete",
+  "workdir": "E:\\MV2-Pursuit\\work\\20261119T200644Z-science\\tbc",
+  "image": "python:3.12",
+  "run_network": true,
+  "network": true,
+  "setup": [
+   {
+    "name": "setup-01-python",
+    "cmd": "python -c \"import urllib.request as u; B='https://raw.githubusercontent.com/munimtechnologies/interface-heat-transport/main/'; [u.urlretrieve(B + p, '/work/' + p) for p in ('requirements-anh.txt', 'tbc_transport.py', 'tbc_phonons.py', 'tbc_bte.py', 'tbc_anh.py')]\"",
+    "timeout_seconds": 0
+   },
+   {
+    "name": "setup-02-pip",
+    "cmd": "pip install -q torch --index-url https://download.pytorch.org/whl/cpu",
+    "timeout_seconds": 0
+   },
+   {
+    "name": "setup-03-pip",
+    "cmd": "pip install -q -r /work/requirements-anh.txt",
+    "timeout_seconds": 0
+   }
+  ],
+  "run_steps": [
+   {
+    "name": "run-01-cd",
+    "cmd": "cd /work && python -m py_compile tbc_diag.py test_tbc_diag.py fetch_npz.py tbc_bte.py tbc_anh.py tbc_transport.py > /out/compile.txt 2>&1; rc=$?; cat /out/compile.txt; grep -h 'VERSION = ' *.py | tee /out/versions.txt; sha256sum *.py | tee /out/sha256.txt; exit $rc",
+    "timeout_seconds": 0
+   },
+   {
+    "name": "run-02-cd",
+    "cmd": "cd /work && python -m unittest -v test_tbc_diag > /out/tests.txt 2>&1; rc=$?; cat /out/tests.txt; exit $rc",
+    "timeout_seconds": 0
+   },
+   {
+    "name": "run-03-cd",
+    "cmd": "cd /work && python fetch_npz.py /tmp/npz > /out/fetch.txt 2>&1; rc=$?; cat /out/fetch.txt; exit $rc",
+    "timeout_seconds": 0
+   },
+   {
+    "name": "run-04-cd",
+    "cmd": "cd /work && OMP_NUM_THREADS=2 python tbc_diag.py --npz-dir /tmp/npz --out /out > /out/stdout-diag.txt 2>&1; rc=$?; cat /out/stdout-diag.txt; exit $rc",
+    "timeout_seconds": 0
+   }
+  ],
+  "data_urls": [],
+  "data_key": "none",
+  "cpu": 2.0,
+  "memory_gb": 2.0,
+  "timeout_minutes": 180.0
+ }
+}

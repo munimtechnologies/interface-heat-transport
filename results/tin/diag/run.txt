@@ -1,0 +1,17 @@
+mv2 tbc-diag 0.1.0 | mv2 tbc-anh 0.1.0 | mv2 tbc-bte 0.1.0
+MAT TiN: vcell from kappa 1.9242e-29 m^3, a^3/4 1.9243e-29 (ratio 1.0000); kappa300 ph3 44.6 W/mK; anh-mesh freq max 17.09 THz, min -2.932, imag share 0.0103; M_or shape (2400,); temps 100,200,300,400,500,600,700,800,900,1000
+MAT C: vcell from kappa 1.1395e-29 m^3, a^3/4 1.1395e-29 (ratio 1.0000); kappa300 ph3 780.8 W/mK; anh-mesh freq max 40.55 THz, min -0.000, imag share 0.0000; M_or shape (2400,); temps 100,200,300,400,500,600,700,800,900,1000
+MAT Si: vcell from kappa 4.0710e-29 m^3, a^3/4 4.0711e-29 (ratio 1.0000); kappa300 ph3 61.5 W/mK; anh-mesh freq max 15.23 THz, min -0.000, imag share 0.0000; M_or shape (2400,); temps 100,200,300,400,500,600,700,800,900,1000
+MAT Ge: vcell from kappa 4.7729e-29 m^3, a^3/4 4.7728e-29 (ratio 1.0000); kappa300 ph3 20.5 W/mK; anh-mesh freq max 8.61 THz, min -0.000, imag share 0.0000; M_or shape (2400,); temps 100,200,300,400,500,600,700,800,900,1000
+DIAG TiN/C 300 K | G base 43.3 dmm 264.3 simons 307.7 linbath 294.4 | uni 307.7 uni1 331.0 uni2 42.8 s1x0.01 43.3 | x0.5 43.3 x2 43.3 n800 43.3 | kappa 132.3/881.5 W/mK sumK 1328/3191 | shared 0.257/0.292 | len nm all/shared 1.39e+03/106 and 232/334 | capped 0.000/0.000 filled 11/28 resid 3.97e-21
+DIAG TiN/C 900 K | G base 52.8 dmm 361.8 simons 419.1 linbath 385.3 | uni 419.1 uni1 431.8 uni2 52.6 s1x0.01 53.0 | x0.5 52.8 x2 52.8 n800 52.8 | kappa 42.7/379.4 W/mK sumK 1582/8111 | shared 0.295/0.149 | len nm all/shared 391/29.5 and 35.5/50.6 | capped 0.000/0.000 filled 11/28 resid 1.32e-21
+DIAG TiN/Si 300 K | G base 52.3 dmm 315.3 simons 431.8 linbath 453.3 | uni 431.8 uni1 398.5 uni2 52.1 s1x0.01 52.3 | x0.5 52.3 x2 52.3 n800 52.3 | kappa 132.3/62.9 W/mK sumK 1328/1045 | shared 0.775/0.869 | len nm all/shared 1.39e+03/1.12e+03 and 71.7/79 | capped 0.000/0.000 filled 11/6 resid 2.91e-21
+DIAG TiN/Si 700 K | G base 61.5 dmm 340.2 simons 454.5 linbath 486.0 | uni 454.5 uni1 424.8 uni2 61.2 s1x0.01 61.5 | x0.5 61.5 x2 61.5 n800 61.5 | kappa 55.0/27.1 W/mK sumK 1557/1196 | shared 0.784/0.820 | len nm all/shared 511/409 and 26.8/30 | capped 0.000/0.000 filled 11/6 resid 1.64e-21
+DIAG TiN/Ge 300 K | G base 51.5 dmm 272.4 simons 427.9 linbath 392.9 | uni 427.9 uni1 194.0 uni2 55.0 s1x0.01 51.5 | x0.5 51.5 x2 51.5 n800 51.5 | kappa 132.3/20.6 W/mK sumK 1328/522 | shared 0.993/1.000 | len nm all/shared 1.39e+03/1.4e+03 and 67.5/67.5 | capped 0.000/0.000 filled 11/2 resid 8.14e-21
+DIAG TiN/Ge 700 K | G base 59.3 dmm 288.1 simons 447.9 linbath 416.4 | uni 447.9 uni1 209.3 uni2 64.2 s1x0.01 59.3 | x0.5 59.3 x2 59.3 n800 59.3 | kappa 55.0/9.3 W/mK sumK 1557/545 | shared 0.988/1.000 | len nm all/shared 511/517 and 27.3/27.4 | capped 0.000/0.000 filled 11/2 resid 1.59e-21
+D0: PASS
+D1: PASS
+D2: PASS
+D3: PASS(TiN/C 300 uni/dmm 1.16, TiN/C 900 uni/dmm 1.16, TiN/Si 300 uni/dmm 1.37, TiN/Si 700 uni/dmm 1.34, TiN/Ge 300 uni/dmm 1.57, TiN/Ge 700 uni/dmm 1.55)
+D4: INFO(TiN/C 300 side1 1.04 side2 -0.01 -> TiN; TiN/C 900 side1 1.01 side2 -0.00 -> TiN; TiN/Si 300 side1 0.96 side2 -0.00 -> TiN; TiN/Si 700 side1 0.97 side2 -0.00 -> TiN; TiN/Ge 300 side1 0.63 side2 0.03 -> TiN; TiN/Ge 700 side1 0.62 side2 0.04 -> TiN)
+TDG: D0 PASS | D1 PASS | D2 PASS | D3 PASS | D4 INFO | TiN/C 300 base/dmm/uni 43/264/308 ; TiN/C 900 base/dmm/uni 53/362/419 ; TiN/Si 300 base/dmm/uni 52/315/432 ; TiN/Si 700 base/dmm/uni 61/340/455 ; TiN/Ge 300 base/dmm/uni 51/272/428 ; TiN/Ge 700 base/dmm/uni 59/288/448
