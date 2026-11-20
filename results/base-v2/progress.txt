@@ -1,0 +1,78 @@
+mv2 run-tbc-safe 0.1.0 | mv2 run-tbc 0.1.0 | mv2 tbc-transport 0.1.0 | mv2 tbc-phonons 0.1.0
+mace-mpa-0 Al: a,b,c=['4.0387', '4.0387', '4.0387'] max=7.93 THz (ref 9.7) min=0.240 imag=0.0000 conv=True 14.4 s | float64 peak 1.672 GB
+mace-mpa-0 Si: a,b,c=['5.4674', '5.4674', '5.4674'] max=12.68 THz (ref 15.6) min=0.245 imag=0.0000 conv=True 19.8 s | float64 peak 2.336 GB
+mace-mpa-0 GaN: a,b,c=['3.2047', '3.2047', '5.2503'] max=21.10 THz (ref 16.8) min=0.333 imag=0.0000 conv=True 30.5 s | float64 peak 2.78 GB
+mace-mpa-0 AlN: a,b,c=['3.1324', '3.1324', '5.0260'] max=26.50 THz (ref 20.1) min=0.510 imag=0.0000 conv=True 33.6 s | float64 peak 3.143 GB
+mace-mpa-0 Cu: a,b,c=['3.6399', '3.6399', '3.6399'] max=7.09 THz (ref 7.3) min=0.167 imag=0.0000 conv=True 14.6 s | float64 peak 2.004 GB
+mace-mpa-0 C: a,b,c=['3.5778', '3.5778', '3.5778'] max=37.86 THz (ref 39.9) min=0.835 imag=0.0000 conv=True 20.3 s | float32 peak 2.93 GB
+mace-mpa-0 TiC: a,b,c=['4.3325', '4.3325', '4.3325'] max=21.30 THz (ref None) min=0.462 imag=0.0000 conv=True 26.4 s | float64 peak 3.178 GB
+mace-mpa-0 Au: a,b,c=['4.1665', '4.1665', '4.1665'] max=4.04 THz (ref 4.6) min=0.075 imag=0.0000 conv=True 13.9 s | float64 peak 1.67 GB
+mace-mpa-0 Ti: a,b,c=['2.9187', '2.9187', '4.6841'] max=5.44 THz (ref None) min=0.214 imag=0.0000 conv=True 9.9 s | float64 peak 1.597 GB
+mace-mpa-0 Ni: a,b,c=['3.5213', '3.5213', '3.5213'] max=8.37 THz (ref 8.9) min=0.254 imag=0.0000 conv=True 14.2 s | float64 peak 2.016 GB
+orb-v3 Al: a,b,c=['4.0245', '4.0245', '4.0245'] max=9.88 THz (ref 9.7) min=0.195 imag=0.0000 conv=True 74.2 s | default peak 1.324 GB
+orb-v3 Si: a,b,c=['5.4608', '5.4608', '5.4608'] max=15.37 THz (ref 15.6) min=0.239 imag=0.0000 conv=True 27.7 s | default peak 1.464 GB
+orb-v3 GaN: a,b,c=['3.2180', '3.2180', '5.2454'] max=21.48 THz (ref 16.8) min=0.336 imag=0.0000 conv=True 38.7 s | default peak 1.752 GB
+orb-v3 AlN: a,b,c=['3.1320', '3.1320', '5.0086'] max=25.60 THz (ref 20.1) min=0.507 imag=0.0000 conv=True 42.9 s | default peak 1.926 GB
+orb-v3 Cu: a,b,c=['3.6134', '3.6134', '3.6134'] max=7.45 THz (ref 7.3) min=0.145 imag=0.0000 conv=True 23.0 s | default peak 1.361 GB
+orb-v3 C: a,b,c=['3.5721', '3.5721', '3.5721'] max=40.85 THz (ref 39.9) min=1.072 imag=0.0000 conv=True 31.5 s | default peak 2.406 GB
+orb-v3 TiC: a,b,c=['4.3345', '4.3345', '4.3345'] max=21.37 THz (ref None) min=0.407 imag=0.0000 conv=True 34.3 s | default peak 1.934 GB
+orb-v3 Au: a,b,c=['4.1507', '4.1507', '4.1507'] max=4.32 THz (ref 4.6) min=0.034 imag=0.0000 conv=True 22.8 s | default peak 1.21 GB
+orb-v3 Ti: a,b,c=['2.9420', '2.9420', '4.6222'] max=7.97 THz (ref None) min=0.295 imag=0.0000 conv=True 24.7 s | default peak 1.209 GB
+orb-v3 Ni: a,b,c=['3.5054', '3.5054', '3.5054'] max=8.88 THz (ref 8.9) min=0.227 imag=0.0000 conv=True 23.0 s | default peak 1.36 GB
+G mace-mpa-0 oriented Al/Si    conv/simons MW/m2K 100:245/426 300:366/578 400:375/587 700:384/595 rad 1111,912
+G mace-mpa-0 oriented Al/GaN   conv/simons MW/m2K 100:276/500 300:416/652 400:426/654 700:436/655 rad 1111,1190
+G mace-mpa-0 oriented Al/AlN   conv/simons MW/m2K 100:193/273 300:324/416 400:335/426 700:345/435 rad 1111,2178
+G mace-mpa-0 oriented AlN/GaN  conv/simons MW/m2K 100:181/267 300:428/594 400:474/653 700:525/718 rad 2178,1190
+G mace-mpa-0 iso      Al/Si    conv/simons MW/m2K 100:247/432 300:369/584 400:378/594 700:386/602 rad 1102,913
+G mace-mpa-0 iso      Al/GaN   conv/simons MW/m2K 100:274/503 300:412/647 400:423/648 700:432/648 rad 1102,1174
+G mace-mpa-0 iso      Cu/C     conv/simons MW/m2K 100:49/56 300:74/77 400:76/79 700:78/80 rad 1221,3411
+G mace-mpa-0 iso      Cu/TiC   conv/simons MW/m2K 100:154/205 300:236/284 400:242/289 700:248/293 rad 1221,1625
+G mace-mpa-0 iso      TiC/C    conv/simons MW/m2K 100:89/124 300:573/775 400:698/941 700:842/1131 rad 1625,3411
+G mace-mpa-0 iso      Au/Si    conv/simons MW/m2K 100:76/91 300:89/102 400:89/103 700:90/103 rad 538,913
+G mace-mpa-0 iso      Ti/Si    conv/simons MW/m2K 100:174/255 300:225/306 400:228/309 700:231/312 rad 783,913
+G mace-mpa-0 iso      Ni/Si    conv/simons MW/m2K 100:266/469 300:407/650 400:418/661 700:428/671 rad 1360,913
+G mace-mpa-0 iso      Al/AlN   conv/simons MW/m2K 100:192/275 300:323/416 400:333/425 700:343/433 rad 1102,2073
+G mace-mpa-0 debye    Al/Si    300K amm 869 dmm 828
+G mace-mpa-0 debye    Al/GaN   300K amm 1088 dmm 950
+G mace-mpa-0 debye    Cu/C     300K amm 117 dmm 301
+G mace-mpa-0 debye    Cu/TiC   300K amm 409 dmm 747
+G mace-mpa-0 debye    TiC/C    300K amm 1099 dmm 1221
+G mace-mpa-0 debye    Au/Si    300K amm 63 dmm 258
+G mace-mpa-0 debye    Ti/Si    300K amm 735 dmm 807
+G mace-mpa-0 debye    Ni/Si    300K amm 792 dmm 1037
+G mace-mpa-0 debye    Al/AlN   300K amm 569 dmm 875
+G orb-v3 oriented Al/Si    conv/simons MW/m2K 100:275/477 300:434/657 400:448/669 700:460/679 rad 1705,1024
+G orb-v3 oriented Al/GaN   conv/simons MW/m2K 100:336/617 300:554/900 400:572/909 700:589/916 rad 1705,1243
+G orb-v3 oriented Al/AlN   conv/simons MW/m2K 100:249/373 300:488/658 400:510/680 700:530/699 rad 1705,2116
+G orb-v3 oriented AlN/GaN  conv/simons MW/m2K 100:193/291 300:447/626 400:489/679 700:535/736 rad 2116,1243
+G orb-v3 iso      Al/Si    conv/simons MW/m2K 100:280/488 300:441/670 400:455/682 700:467/692 rad 1693,1043
+G orb-v3 iso      Al/GaN   conv/simons MW/m2K 100:333/618 300:546/886 400:564/893 700:580/898 rad 1693,1226
+G orb-v3 iso      Cu/C     conv/simons MW/m2K 100:35/40 300:56/58 400:57/59 700:59/60 rad 1387,3184
+G orb-v3 iso      Cu/TiC   conv/simons MW/m2K 100:185/252 300:291/356 400:299/363 700:306/369 rad 1387,1849
+G orb-v3 iso      TiC/C    conv/simons MW/m2K 100:76/105 300:541/704 400:658/851 700:792/1017 rad 1849,3184
+G orb-v3 iso      Au/Si    conv/simons MW/m2K 100:93/114 300:110/129 400:111/130 700:112/130 rad 602,1043
+G orb-v3 iso      Ti/Si    conv/simons MW/m2K 100:231/388 300:334/489 400:341/495 700:348/499 rad 1058,1043
+G orb-v3 iso      Ni/Si    conv/simons MW/m2K 100:257/432 300:392/573 400:403/581 700:412/588 rad 1546,1043
+G orb-v3 iso      Al/AlN   conv/simons MW/m2K 100:244/370 300:477/646 400:499/666 700:518/684 rad 1693,1993
+G orb-v3 debye    Al/Si    300K amm 875 dmm 833
+G orb-v3 debye    Al/GaN   300K amm 1095 dmm 953
+G orb-v3 debye    Cu/C     300K amm 120 dmm 307
+G orb-v3 debye    Cu/TiC   300K amm 417 dmm 762
+G orb-v3 debye    TiC/C    300K amm 1097 dmm 1219
+G orb-v3 debye    Au/Si    300K amm 63 dmm 260
+G orb-v3 debye    Ti/Si    300K amm 735 dmm 808
+G orb-v3 debye    Ni/Si    300K amm 801 dmm 1047
+G orb-v3 debye    Al/AlN   300K amm 573 dmm 881
+B2_mace-mpa-0: FAIL(Al:max0.82;Si:max0.81;GaN:max1.26;AlN:max1.32)
+B2_orb-v3: FAIL(GaN:max1.28;AlN:max1.27)
+B3: FAIL(369 vs 441)
+E1_mace-mpa-0: PASS(Al/Si:1.022,Al/GaN:1.022)
+E2_mace-mpa-0: PASS(conv+ep 281 < 379 < simons+ep 391; ep 1212, hi-g ep 1715)
+E3_mace-mpa-0: FAIL(GaN/Si conv 1.135, simons 1.128; meas 1.116)
+E4_mace-mpa-0: PASS(ratio conv 6.20, simons 7.31; meas 1.48)
+E1_orb-v3: PASS(Al/Si:1.027,Al/GaN:1.029)
+E2_orb-v3: PASS(conv+ep 320 < 379 < simons+ep 426; ep 1212, hi-g ep 1715)
+E3_orb-v3: FAIL(GaN/Si conv 1.275, simons 1.370; meas 1.116)
+E4_orb-v3: PASS(ratio conv 7.64, simons 8.91; meas 1.48)
+SAFE: mace-mpa-0 done 10/10 f32 [C] failed [] peak 3.18 GB GaN/B1high 1.021 | orb-v3 done 10/10 f32 [] failed [] peak 2.41 GB GaN/B1high 1.039
+TBC: B2_mace-mpa-0 FAIL | B2_orb-v3 FAIL | B3 FAIL | E1_mace-mpa-0 PASS | E2_mace-mpa-0 PASS | E3_mace-mpa-0 FAIL | E4_mace-mpa-0 PASS | E1_orb-v3 PASS | E2_orb-v3 PASS | E3_orb-v3 FAIL | E4_orb-v3 PASS

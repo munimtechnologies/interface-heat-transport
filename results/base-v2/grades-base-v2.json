@@ -1,0 +1,20 @@
+{
+ "job": "tbc-base-v2",
+ "rules": "PLAN.md (B1-B3, E1-E4) and PLAN-amendment-0.5.4.md sec. 4 (M0, N1); thresholds unchanged",
+ "graded": "2026-11-20",
+ "graded_by": "AI agents working in MV2's name; not checked by a thermal-transport specialist",
+ "source_file": "results/base-v2/tbc-summary.json",
+ "grades": {
+  "M0": "PASS (17/17 tests; 10/10 materials per potential; MACE diamond retried in float32 after a memory kill)",
+  "B1": "PASS (17/17 tests)",
+  "B2_mace-mpa-0": "FAIL (Al 0.82, Si 0.81, GaN 1.26, AlN 1.32; expected)",
+  "B2_orb-v3": "FAIL (GaN 1.28, AlN 1.27 against E1(TO) references flagged wrong in amendment 0.5.4)",
+  "B3": "FAIL (isotropic DMM Al/Si 300 K: 369 vs 441)",
+  "E1": "PASS both (MACE 1.022/1.022, orb 1.027/1.029)",
+  "E2": "PASS both (MACE 281 < 379 < 391; orb 320 < 379 < 426)",
+  "E3": "FAIL both (MACE 1.135, orb 1.275; measured 1.116; threshold < 1.12)",
+  "E4": "PASS both (MACE 6.20/7.31, orb 7.64/8.91; measured 1.48)",
+  "N1": "PASS (MACE 366 < orb 434)"
+ },
+ "information": {"GaN_over_B1high_20.67THz": {"mace-mpa-0": 1.021, "orb-v3": 1.039}}
+}

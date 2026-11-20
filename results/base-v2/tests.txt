@@ -1,0 +1,22 @@
+test_kill_then_float32_and_no_retry_after_exit (test_run_tbc_safe.TestOrchestration.test_kill_then_float32_and_no_retry_after_exit) ... ok
+test_no_time_left (test_run_tbc_safe.TestOrchestration.test_no_time_left) ... ok
+test_orb_one_attempt (test_run_tbc_safe.TestOrchestration.test_orb_one_attempt) ... ok
+test_attempts (test_run_tbc_safe.TestSmall.test_attempts) ... ok
+test_describe_exit (test_run_tbc_safe.TestSmall.test_describe_exit) ... ok
+test_finish_info_gan (test_run_tbc_safe.TestSmall.test_finish_info_gan) ... ok
+test_part_roundtrip (test_run_tbc_safe.TestSmall.test_part_roundtrip) ... ok
+test_safe_line (test_run_tbc_safe.TestSmall.test_safe_line) ... ok
+test_should_retry (test_run_tbc_safe.TestSmall.test_should_retry) ... ok
+test_al_si_debye_magnitude (test_tbc_transport.TestTransport.test_al_si_debye_magnitude) ... ok
+test_amm (test_tbc_transport.TestTransport.test_amm) ... ok
+test_debye_radiation_classical_limit (test_tbc_transport.TestTransport.test_debye_radiation_classical_limit) ... ok
+test_dmm_identical_and_detailed_balance (test_tbc_transport.TestTransport.test_dmm_identical_and_detailed_balance) ... ok
+test_flux_spectrum_isotropic_vs_oriented (test_tbc_transport.TestTransport.test_flux_spectrum_isotropic_vs_oriented) ... ok
+test_heat_capacity_limits (test_tbc_transport.TestTransport.test_heat_capacity_limits) ... ok
+test_series_and_ep (test_tbc_transport.TestTransport.test_series_and_ep) ... ok
+test_simons (test_tbc_transport.TestTransport.test_simons) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 2.665s
+
+OK

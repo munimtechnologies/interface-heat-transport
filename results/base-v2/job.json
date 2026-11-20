@@ -1,0 +1,59 @@
+{
+ "source": "E:\\MV2-Pursuit\\work\\20261119T111259Z-science\\compete\\tbc-base\\job.json",
+ "normalized": {
+  "id": "4d9fe9bd0dbf",
+  "name": "tbc-base-v2",
+  "job_path": "E:\\MV2-Pursuit\\work\\20261119T111259Z-science\\compete\\tbc-base\\job.json",
+  "run": "20261119T111259Z-science",
+  "field": "science",
+  "kind": "compete",
+  "workdir": "E:\\MV2-Pursuit\\work\\20261119T111259Z-science\\tbc-safe",
+  "image": "python:3.12",
+  "run_network": true,
+  "network": true,
+  "setup": [
+   {
+    "name": "setup-01-python",
+    "cmd": "python -c \"import urllib.request as u; B='https://raw.githubusercontent.com/munimtechnologies/interface-heat-transport/main/'; [u.urlretrieve(B + p, '/work/' + p) for p in ('run_tbc.py', 'tbc_transport.py', 'tbc_phonons.py', 'test_tbc_transport.py')]\"",
+    "timeout_seconds": 0
+   },
+   {
+    "name": "setup-02-pip",
+    "cmd": "pip install -q torch --index-url https://download.pytorch.org/whl/cpu",
+    "timeout_seconds": 0
+   },
+   {
+    "name": "setup-03-pip",
+    "cmd": "pip install -q -r /work/requirements.txt",
+    "timeout_seconds": 0
+   },
+   {
+    "name": "setup-04-pip",
+    "cmd": "pip install -q orb-models || echo ORB_INSTALL_FAILED",
+    "timeout_seconds": 0
+   }
+  ],
+  "run_steps": [
+   {
+    "name": "run-01-cd",
+    "cmd": "cd /work && python -m py_compile run_tbc_safe.py test_run_tbc_safe.py run_tbc.py tbc_transport.py tbc_phonons.py test_tbc_transport.py && grep -h 'VERSION = ' *.py | tee /out/versions.txt && pip list 2>/dev/null | grep -i -E 'torch|mace|orb|phonopy|ase|numpy' | tee -a /out/versions.txt; sha256sum *.py | tee /out/sha256.txt",
+    "timeout_seconds": 0
+   },
+   {
+    "name": "run-02-cd",
+    "cmd": "cd /work && python -m unittest -v test_run_tbc_safe test_tbc_transport > /out/tests.txt 2>&1; rc=$?; cat /out/tests.txt; exit $rc",
+    "timeout_seconds": 0
+   },
+   {
+    "name": "run-03-cd",
+    "cmd": "cd /work && OMP_NUM_THREADS=2 python run_tbc_safe.py --out /out --models mace-mpa-0,orb-v3 --budget-min 150 > /out/run.txt 2>&1; rc=$?; grep -v 'Downloading:' /out/run.txt | tail -n 80; exit $rc",
+    "timeout_seconds": 0
+   }
+  ],
+  "data_urls": [],
+  "data_key": "none",
+  "cpu": 2.0,
+  "memory_gb": 5.0,
+  "timeout_minutes": 200.0
+ }
+}
