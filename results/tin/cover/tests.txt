@@ -1,0 +1,17 @@
+test_conserves_totals (test_tbc_cover.TestBands.test_conserves_totals) ... ok
+test_cutoff_spec_vs_literal (test_tbc_cover.TestBands.test_cutoff_spec_vs_literal) ... ok
+test_first_band_is_merge_range (test_tbc_cover.TestBands.test_first_band_is_merge_range) ... ok
+test_interleaved (test_tbc_cover.TestBands.test_interleaved) ... ok
+test_min_bins (test_tbc_cover.TestBands.test_min_bins) ... ok
+test_no_sample (test_tbc_cover.TestBands.test_no_sample) ... ok
+test_widths (test_tbc_cover.TestBands.test_widths) ... ok
+test_all_pass (test_tbc_cover.TestGrade.test_all_pass) ... ok
+test_fails (test_tbc_cover.TestGrade.test_fails) ... ok
+test_missing (test_tbc_cover.TestGrade.test_missing) ... ok
+test_tin_c_band (test_tbc_cover.TestGrade.test_tin_c_band) ... ok
+test_cover_conserves (test_tbc_cover.TestMechanism.test_cover_conserves) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.274s
+
+OK
