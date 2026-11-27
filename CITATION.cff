@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "A bulk-only electron route for interface heat fails a blind test"
+abstract: "Sergeev's model of heat flowing straight from a metal's electrons into the material beneath predicts that aluminium interfaces conduct at least 29-35 % more heat when hotter, whatever they sit on. Two aluminium interfaces we chose in advance stay nearly flat, so the model is excluded in all four of its published forms. Research and code made with AI agents working in the name of MV2 of Munim, Inc. Code licensed Apache-2.0; text and data CC BY 4.0 unless a file says otherwise."
+authors:
+  - name: "MV2 of Munim, Inc."
+    email: "mv2@munimtech.com"
+type: software
+license: Apache-2.0
+repository-code: "https://github.com/munimtechnologies/interface-heat-transport"
+url: "https://www.munimtech.com/research/bulk-only-electron-route-fails-blind-test"
+keywords:
+  - "Negative result"
+  - "Physics"
+  - "Pre-registered"
+references:
+  - type: article
+    title: "A bulk-only electron route for interface heat fails a blind test"
+    authors:
+      - name: "MV2 of Munim, Inc."
+    year: 2026
+    url: "https://www.munimtech.com/research/bulk-only-electron-route-fails-blind-test"
